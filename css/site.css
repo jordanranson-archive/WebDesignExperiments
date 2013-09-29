@@ -47,6 +47,10 @@ table {
 	border-spacing: 0;
 }
 
+html, body {
+	overflow-x: hidden;
+}
+
 body {
 	font: 400 13pt/1.17 'Roboto', sans-serif;
 	background: #F0F2F5;
@@ -58,19 +62,13 @@ body {
 	user-select: none !important;
 }
 
-a {
-	user-select: text;
-}
-
 h1, h2, h3 {
 	color: #494A4A;
 	margin-bottom: 10px;
-	user-select: text;
 }
 
 p {
 	margin-bottom: 10px;
-	user-select: text;
 }
 
 p.push-down {
@@ -88,6 +86,7 @@ h2 {
 .container {
 	width: 600px;
 	margin: 80px auto;
+	padding: 200px 0;
 }
 
 .bubble {
@@ -102,6 +101,7 @@ h2 {
 	top: 0;
 	width: 100%;
 	height: 230px;
+	overflow: hidden;
 
 	border-radius: 12px;
 	box-shadow: 0 2px 6px #CCC;
@@ -115,32 +115,64 @@ h2 {
 	border-color: #ccc;
 }
 
-.bubble-media .bbl-content:hover aside {
+.bbl-content.favor-media aside {
 	width: 70%;
 }
-.bubble-media .bbl-content:hover article {
+
+.bbl-content.favor-media article {
 	width: 30%;
 }
-.bubble-media .bbl-content:hover article p,
-.bubble-media .bbl-content:hover article h2 {
+
+.bbl-content.favor-media article p,
+.bbl-content.favor-media article h2 {
 	font-size: 11pt;
 }
 
-.bubble-media .bbl-content:active aside {
+.bbl-content.favor-text aside {
 	width: 30%;
 }
-.bubble-media .bbl-content:active article {
+
+.bbl-content.favor-text  article {
 	width: 70%;
 }
-.bubble-media .bbl-content:active article p {
+
+.bbl-content.favor-text  article p {
 	opacity: 1;
 	font-size: 13pt;
 }
-.bubble-media .bbl-content:active article h2 {
+
+.bbl-content.favor-text  article h2 {
 	opacity: 1;
 	font-size: 17pt;
 }
 
+.bbl-content.collapse {
+	width: 40%;
+	height: 150px;
+	margin-left: 180px;
+}
+
+.bbl-content.collapse aside {
+	width: 100%;
+	border-radius: 12px;
+}
+
+.bbl-content.collapse  article {
+	width: 0%;
+	opacity: 0;
+	overflow: hidden;
+}
+
+.bbl-flex {
+	transition-property: left margin-left margin-top width height border-color;
+	transition-duration: 332ms;
+}
+
+.bbl-flex-x {
+	transition-property: none;
+	transition-property: width height border-color;
+	transition-duration: 332ms;
+}
 
 .bbl-content .header {
 	position: absolute;
@@ -186,12 +218,6 @@ h2 {
 	right: 0;
 	width: 50%;
 	padding: 35px;
-
-	-webkit-touch-callout: text;
-	-webkit-user-select: text;
-	-moz-user-select: text;
-	-ms-user-select: text;
-	user-select: text;
 
 	background: rgba(255,255,255,0.7);
 	border-radius: 0 12px 12px 0;
