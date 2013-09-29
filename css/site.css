@@ -1,31 +1,200 @@
-body {
-	font-smoothing: antialiased;
-	font-weight: normal;
-	background: #151618;
-	color: #FFF;
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
 	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
 
-.overlay {
-	pointer-events: none;
-	position: absolute;
-	height: 100%;
-	width: 100%;
-	left: 0;
-	top: 0;
+body {
+	font: 400 13pt/1.17 'Roboto', sans-serif;
+	background: #F0F2F5;
+	color: #656D78;
+	user-select: none;
+}
+
+.no-select {
+	user-select: none !important;
+}
+
+a {
+	user-select: text;
+}
+
+h1, h2, h3 {
+	color: #494A4A;
+	margin-bottom: 10px;
+	user-select: text;
+}
+
+p {
+	margin-bottom: 10px;
+	user-select: text;
+}
+
+p.push-down {
+	margin-top: 27px;
+}
+
+h1 {
+	font-size: 23pt;
+}
+
+h2 {
+	font-size: 17pt;
 }
 
 .container {
-  position: absolute;
-  height: 768px;
-  width: 1024px;
+	width: 600px;
+	margin: 80px auto;
 }
 
-.noise {
-	background-image: url('../img/noise.png');
-	opacity: 0.075;
+.bubble {
+	position: relative;
+	margin-bottom: 320px;
+	width: 100%;
+	height: 1px;
 }
 
-.hide {
-	opacity: 0;
+.bbl-content {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 230px;
+
+	border-radius: 12px;
+	box-shadow: 0 2px 6px #CCC;
+}
+
+.bubble-header .bbl-content {
+	height: 250px;
+}
+
+.bbl-content:hover .bbl-main {
+	border-color: #ccc;
+}
+
+.bubble-media .bbl-content:hover aside {
+	width: 70%;
+}
+.bubble-media .bbl-content:hover article {
+	width: 30%;
+}
+.bubble-media .bbl-content:hover article p,
+.bubble-media .bbl-content:hover article h2 {
+	font-size: 11pt;
+}
+
+.bubble-media .bbl-content:active aside {
+	width: 30%;
+}
+.bubble-media .bbl-content:active article {
+	width: 70%;
+}
+.bubble-media .bbl-content:active article p {
+	opacity: 1;
+	font-size: 13pt;
+}
+.bubble-media .bbl-content:active article h2 {
+	opacity: 1;
+	font-size: 17pt;
+}
+
+
+.bbl-content .header {
+	position: absolute;
+	box-sizing: border-box;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	padding: 35px;
+
+	background: rgba(255,255,255,0.7);
+	border-radius: 12px;
+	border: solid 2px #fff;
+	text-align: center;
+	cursor: n-resize;
+}
+
+.bbl-content .header small {
+	opacity: 0.7;
+	font-size: 9pt;
+	letter-spacing: 1px;
+	border: solid 1px #AAB2BD;
+	padding: 0 8px;
+	border-radius: 3px;
+}
+
+.bbl-content aside {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	width: 50%;
+
+	background: #333;
+	border-radius: 12px 0 0 12px;
+}
+
+.bbl-content article {
+	position: absolute;
+	box-sizing: border-box;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	width: 50%;
+	padding: 35px;
+
+	-webkit-touch-callout: text;
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+	user-select: text;
+
+	background: rgba(255,255,255,0.7);
+	border-radius: 0 12px 12px 0;
+	border: solid 2px #fff;
+	border-left: none;
 }
