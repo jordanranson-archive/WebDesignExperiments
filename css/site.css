@@ -54,7 +54,7 @@ table {
 
 @white: #fff;
 @black: #0f0f0f;
-@transBlack: rgba(0,0,0,0.8);
+@transBlack: rgba(0,0,0,0.7);
 @red: #fa4c29;
 @lightGray: #aaa;
 @gray: #555;
@@ -231,8 +231,6 @@ h1:before {
 	padding: 140px 0;
 	margin: 0 auto;
 	width: 600px;
-
-	display: none;
 }
 
 h2, hr, section {
@@ -279,8 +277,6 @@ section {
 	overflow: hidden;
 	position: relative;
 	margin: 14px 0;
-
-	background: #333;
 
 	.media {
 		position: absolute;
