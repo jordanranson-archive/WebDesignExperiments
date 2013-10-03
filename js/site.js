@@ -1,77 +1,68 @@
-var $container = $('.container');
-var $bubbles = $('.bubble');
-var $bubbleHeader = $('.bubble-header');
-var $dragElem;
+var arrLen,
+	points,
+	width,
+	height,
+	canvas,
+	context;
 
-var drag = false;
-var dragStart = { x: 0, y: 0 };
+// polyfill
+window.requestAnimFrame = (function(){
+  return  window.requestAnimationFrame       ||
+          window.webkitRequestAnimationFrame ||
+          window.mozRequestAnimationFrame    ||
+          function( callback ) {
+        	window.setTimeout( callback, 1000 / 60 );
+          };
+})();
 
 window.onload = function() {
+	width = window.innerWidth/64<<0+1;
+	height = window.innerHeight/64<<0+1;
+	arrLen = (width*height)*4;
+	points = new Float32Array( arrLen );
+	canvas = document.getElementById( 'background' );
+	canvas.width = window.innerWidth;
+	canvas.height = window.innerHeight;
+	context = canvas.getContext( '2d' );
 
-$container = $('.container');
-$bubbles = $('.bubble');
-$bubbleHeader = $('.bubble-header');
+	// create triangle points
+	var row, col, index;
+	for( var i = arrLen-1; i >= 3; i-=4 ) {
+		index = ((i+1)/4)-1;
+		col = index%width;
+		row = index/width << 0;
 
-// bind listeners
-$(document).bind( 'mousemove', documentMouseMove );
-$(document).bind( 'mouseup', documentMouseUp );
-$bubbles.bind( 'mousedown', bubbleMouseDown );
-
-};
-
-
-function documentMouseMove( e ) {
-	var dx, dy;
-	if( drag ) {
-		dx = e.clientX - dragStart.x;
-		dy = e.clientY - dragStart.y;
-
-		$dragElem.removeClass( 'bbl-flex' );
-		$dragElem.addClass( 'bbl-flex-x' );
-		$dragElem.css( 'left', dx+'px' );
-
-		if( !$dragElem.hasClass('collapse') ) {
-			if( dx < -100 ) {
-				$dragElem.removeClass('favor-text');
-				$dragElem.addClass('favor-media');
-			}
-
-			if( dx > 100 ) {
-				$dragElem.removeClass('favor-media');
-				$dragElem.addClass('favor-text');
-			}
-		}
+		points[i-3] = col*64;
+		points[i-2] = row*64;
+		points[i-1] = Math.random()*4 << 0;
+		points[i] = 0;
 	}
 
-	$bubbles.each( function( index ) {
-		var $this = $(this).find('.bbl-content');
+	console.log( points );
 
-		var top = $this.parent().offset().top;
-		if( top > 20 && top < 100 ) {
-			$this.removeClass('collapse');
-		}
-		else  {
-			$this.addClass('collapse');
-		}
-	});
+	// start animating that shit
+	(function animloop() {
+		requestAnimFrame( animloop );
+		render();
+	})();
 };
 
-function bubbleMouseDown( e ) {
-	$dragElem = $(e.delegateTarget).find('.bbl-content');
+// draw loop
+function render() {
+	context.clearRect( 0, 0, canvas.width, canvas.height );
+	context.save();
 
-	axis = -1;
-	drag = true;
-	dragStart.x = e.clientX - parseFloat( $dragElem.css('left') );
-	dragStart.y = e.clientY;
-};
+	context.fillStyle = '#fff';
 
-function documentMouseUp( e ) {
-	axis = -1;
-	drag = false;
+	var x, y, a, b;
+	for( var i = arrLen-1; i >= 3; i-=4 ) {
+		x = points[i-3];
+		y = points[i-2];
+		a = points[i-1];
+		b = points[i];
 
-	if( $dragElem ) {
-		$dragElem.removeClass( 'bbl-flex-x' );
-		$dragElem.addClass( 'bbl-flex' );
-		$dragElem.css( 'left', 0+'px' );
+		context.fillRect( x-1, y-1, 2, 2 );
 	}
-};
+
+	context.restore();
+}

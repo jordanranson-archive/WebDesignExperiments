@@ -83,6 +83,19 @@ a:hover {
 	color: @white;
 }
 
+.bg-cvs, .wrapper {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+.bg-cvs { 
+	position: fixed;
+	z-index: 0;
+}
+
 
 /*  
    Masthead 
@@ -93,6 +106,8 @@ header {
 	top: 35px;
 	left: 20px;
 	right: 20px;
+	z-index: 200;
+
 	line-height: 1;
 
 	nav {
@@ -210,10 +225,14 @@ h1:before {
    Main content 
 */
 
+.wrapper { z-index: 100; }
+
 .content {
 	padding: 140px 0;
 	margin: 0 auto;
 	width: 600px;
+
+	display: none;
 }
 
 h2, hr, section {
