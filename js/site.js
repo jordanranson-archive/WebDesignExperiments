@@ -5,7 +5,9 @@ var arrLen,
 	canvas,
 	context,
 	pattern,
+	now = 0,
 	lockScroll = false,
+	lockBackground = false,
 	triangle = {},
 	mousex = 0,
 	mousey = 0,
@@ -25,8 +27,8 @@ window.onload = function() {
 
 	var $content = $( '.content' );
 
-	width = Math.max( 24, window.innerWidth/64<<0+2 );
-	height = Math.max( 18, window.innerHeight/64<<0+1 );
+	width = Math.max( 24, (window.innerWidth/32<<0)+6 );
+	height = Math.max( 18, (window.innerHeight/55.5<<0)+6 );
 	arrLen = (width*height)*4;
 	points = new Float32Array( arrLen );
 	canvas = document.getElementById( 'background' );
@@ -44,8 +46,8 @@ window.onload = function() {
 		col = index%width;
 		row = index/width << 0;
 
-		points[i-3] = col*31.5;
-		points[i-2] = row*54.5;
+		points[i-3] = col*32;
+		points[i-2] = row*55.5;
 		points[i-1] = Math.random()*4 << 0;
 		points[i] = 0;
 	}
@@ -73,6 +75,7 @@ window.onload = function() {
 	this.addEventListener( 'resize', function( evt ) { 
 		canvas.width = this.innerWidth;
 		canvas.height = this.innerHeight;
+		//render();
 	});
 
 	$content.on( 'click', 'section:not(.tweet,.gallery)', function( evt ) {
@@ -91,10 +94,13 @@ window.onload = function() {
 			$( 'body' ).removeClass( 'fullscreen' );
 			$( '.content' ).removeClass( 'fade' );
 
+			lockScroll = false;
+			lockBackground = true;
 			var t = setInterval( function() { 
 				if( $section.width()+'px' === $section.data('width') ) {
 					$( '.cloned' ).removeClass( 'cloned' );
 					$section.remove();
+					lockBackground = false;
 					clearInterval( t );
 				}
 			}, 33 );
@@ -102,10 +108,13 @@ window.onload = function() {
 	});
 
 	// start animating that shit
+	now = new Date().getTime() / 30000;
 	(function animloop() {
 		requestAnimFrame( animloop );
 		render();
 	})();
+
+	//render();
 };
 
 // draw loop
@@ -113,9 +122,18 @@ function render() {
 	context.clearRect( 0, 0, canvas.width, canvas.height );
 	context.save();
 
-	var offsetx = (canvas.width-width*31.5) / 2;
-	var offsety = (canvas.height-height*54.5) / 2;
+	if( !lockBackground ) now += 1;
+	var offsetx = (canvas.width-width*32) / 2;
+	var offsety = (canvas.height-height*55.5) / 2;
+	var ox = Math.sin(now/2000)*300;
+	var oy = Math.sin(now/2000)*300;
+
 	context.translate( offsetx, offsety );
+
+	var mx = mousex - canvas.width/2;
+		mx *= 0.00075;
+	var my = mousey - canvas.height/2;
+		my *= 0.00075;
 
 	var x, y, a, b, dir, index, row, col, dist;
 	for( var i = arrLen-1; i >= 3; i-=4 ) {
@@ -126,18 +144,28 @@ function render() {
 			  col % 2 === 0 ? 0 : 180 :
 			  col % 2 === 0 ? 180 : 0;
 
+		if( !lockBackground ) {
+			points[i-3] += mx;
+			points[i-2] += my;
+		}
+
 		x = points[i-3];
 		y = points[i-2];
 		a = points[i-1];
-		//b = points[i];
 
-		dist = distanceTo( x+offsetx, y+offsety, canvas.width/2, canvas.height/2 );
+		if( x > width*32 ) 		x = points[i-3] = 0;
+		if( x < 0 ) 			x = points[i-3] = width*32;
+		if( y > height*55.5 ) 	y = points[i-2] = 0;
+		if( y < 0 ) 			y = points[i-2] = height*55.5;
+
+		dist = distanceTo( x+offsetx+ox, y+offsety+oy, canvas.width/2, canvas.height/2 );
 		dist = Math.min( Math.max( dist, 0 ), canvas.width*0.46 );
 		dist /= canvas.width*0.46;
 
 		context.fillStyle = color[a];
-		context.globalAlpha = 1-dist;
-		drawTriangle( x, y, dir );
+		context.globalAlpha = (1-dist);
+
+		drawTriangle( x+ox, y+oy, dir );
 	}
 
 	context.restore();
@@ -192,20 +220,24 @@ function clone( elem ) {
 
 	if( $clone.hasClass( 'media' ) ) {
 		var $content = $clone.find( '.media' );
+			$content.addClass( 'left' );
 		var $newContent = $content.clone();
-
-		$content.wrap( '<div class="left"></div>' );
-
-		$newContent.wrap( '<div class="right"></div>' );
-		$newContent.parent().appendTo( $clone );
+			$newContent
+			.addClass( 'right' )
+			.appendTo( $clone );
 	}
 
+	lockBackground = true;
 	$clone.appendTo( 'body' );
+	$( '.content' ).addClass( 'fade50' );
 	setTimeout( function() { $clone.addClass( 'active' ) }, 0 );
 
-
+	// TODO: ajax callback
 	setTimeout( function() {
+		var h = window.innerHeight-102-35;
+
 		$( '.content' ).addClass( 'fade' );
+		$( '.content' ).removeClass( 'fade50' );
 
 		$clone
 		.css( 'top', 102+scrollTop+'px' )
@@ -213,11 +245,18 @@ function clone( elem ) {
 		.css( 'left', 0+'px' )
 		.css( 'right', 0+'px' )
 		.css( 'width', '100%' )
-		.css( 'height', window.innerHeight-102-35 )
+		.css( 'height', h+'px' )
 		.addClass( 'fullscreen' ) 
 		.removeClass( 'active' );
 
-		lockScroll = true;
 		$( 'body' ).addClass( 'fullscreen' );
-	}, 1000 );
+
+		lockScroll = true;
+		var t = setInterval( function() { 
+			if( $clone.width() === canvas.width && $clone.height() === h ) {
+				lockBackground = false;
+				clearInterval( t );
+			}
+		}, 33 );
+	}, 3000 );
 }

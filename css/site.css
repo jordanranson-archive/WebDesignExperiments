@@ -55,7 +55,7 @@ table {
 @white: #fff;
 @black: #0f0f0f;
 @transBlack: rgba(0,0,0,0.7);
-@red: #fa4c29;
+@red: #f74728;
 @lightGray: #aaa;
 @gray: #555;
 @darkGray: #222;
@@ -71,6 +71,7 @@ body {
 	font: 400 13pt/1.17 'Open Sans', sans-serif;
 	background: @black;
 	color: @lightGray;
+	overflow: hidden;
 
 	&.fullscreen {
 		header nav {
@@ -308,8 +309,9 @@ h1 {
 	margin: 0 auto;
 	width: 600px;
 
-	transition: 0.2s @easing opacity;
+	transition: 0.2s @easing all;
 
+	&.fade50 { opacity: 0.4;  }
 	&.fade { opacity: 0; }
 }
 
@@ -465,12 +467,15 @@ section {
   		perspective-origin: 50% 50% 0;
 		transition: 0.2s @easing all;
 
-  		.media, article {
+  		.left, .right {
+			position: absolute;
+			width: 50%;
+
 			transform-style: preserve-3d;
 			transition: 0.2s @easing transform;
 			transform: rotateY( 0deg );
 
-			&:before {
+			/*&:before {
 				content: '';
 				display: block;
 				position: absolute;
@@ -484,37 +489,12 @@ section {
 
 				background: @black;
 				opacity: 0;
-			}
+			}*/
   		}
-
-  		.media {
-			transform-origin: 0% 50% 0;
-  		}
-
-  		article {
-  			position: absolute;
-			right: 0;
-			top: 0;
-			bottom: 0;
-			width: 50%;
-
-			transform-origin: 100% 50% 0;
-
-			> * { transition: 0.2s @easing opacity; }
-  		}
-
-		.left, .right {
-			position: absolute;
-			top: 0;
-			width: 50%;
-			height: 100%;
-			overflow: hidden;
-
-			transition: 0.2s @easing transform;
-		}
 
 		.left {
 			left: 0;
+
 			transform-origin: 0% 50% 0;
 
 			article {
@@ -527,28 +507,21 @@ section {
 		}
 
 		.right {
-			right: 0;
+			margin-left: 50%;
+
 			transform-origin: 100% 50% 0;
 		}
 
+  		article {
+			* { transition: 0.2s @easing color; }
+  		}
+
 		&.active {
-			.media, article {
+			/*.left, right {
 				&:before {
 					opacity: 0.7;
 				}
-			}
-
-			&.article {
-				.media {
-					transform: 
-						rotateY( 70deg );
-				}
-
-				article {
-					transform: rotateY( -70deg );
-					> * { opacity: 0; }
-				}
-			}
+			}*/
 
 			.left {
 				transform: 
@@ -559,23 +532,13 @@ section {
 				transform: 
 					rotateY( -70deg );
 			}
+
+			article {
+				* { color: transparent !important; }
+			}
 		}
 
 		&.fullscreen {
-			&.article {
-				.media {
-					top: 0;
-					left: 0;
-					bottom: 0;
-				}
-
-				article {
-					top: 0;
-					right: 0;
-					bottom: 0;
-				}
-			}
-
 			.left {
 				top: 0;
 				left: 0;
