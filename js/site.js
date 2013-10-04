@@ -96,7 +96,7 @@ window.onload = function() {
 
 			lockScroll = false;
 			lockBackground = true;
-			var t = setInterval( function() { 
+			var t = setInterval( function() {
 				if( $section.width()+'px' === $section.data('width') ) {
 					$( '.cloned' ).removeClass( 'cloned' );
 					$section.remove();
@@ -135,7 +135,7 @@ function render() {
 	.css( '-moz-transform', 'translateX('+((mx*-0.01)<<0)+'px) translateY('+((my*-0.01)<<0)+'px)' )
 	.css( '-webkit-transform', 'translateX('+((mx*-0.01)<<0)+'px) translateY('+((my*-0.01)<<0)+'px)' )
 	*/
-	
+
 	var x, y, a, b, dir, index, row, col, dist;
 	for( var i = arrLen-1; i >= 3; i-=4 ) {
 		index = ((i+1)/4)-1;
@@ -257,5 +257,5 @@ function clone( elem ) {
 				clearInterval( t );
 			}
 		}, 33 );
-	}, 3000 );
+	}, 2500 );
 }
