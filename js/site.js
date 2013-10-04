@@ -12,17 +12,21 @@ var arrLen,
 
 // polyfill
 window.requestAnimFrame = (function(){
-  return  window.requestAnimationFrame       ||
-          window.webkitRequestAnimationFrame ||
-          window.mozRequestAnimationFrame    ||
-          function( callback ) {
-        	window.setTimeout( callback, 1000 / 60 );
-          };
+	return  window.requestAnimationFrame       ||
+			window.webkitRequestAnimationFrame ||
+			window.mozRequestAnimationFrame    ||
+			function( callback ) {
+	    		window.setTimeout( callback, 1000 / 60 );
+			};
 })();
 
 window.onload = function() {
-	width = window.innerWidth/64<<0+2;
-	height = window.innerHeight/64<<0+1;
+	console.clear();
+
+	var $content = $( '.content' );
+
+	width = Math.max( 24, window.innerWidth/64<<0+2 );
+	height = Math.max( 18, window.innerHeight/64<<0+1 );
 	arrLen = (width*height)*4;
 	points = new Float32Array( arrLen );
 	canvas = document.getElementById( 'background' );
@@ -71,6 +75,10 @@ window.onload = function() {
 		canvas.height = this.innerHeight;
 	});
 
+	$content.on( 'click', 'section', function( evt ) {
+		clone( this );
+	});
+
 	// start animating that shit
 	(function animloop() {
 		requestAnimFrame( animloop );
@@ -83,6 +91,9 @@ function render() {
 	context.clearRect( 0, 0, canvas.width, canvas.height );
 	context.save();
 
+	var offsetx = (canvas.width-width*31.5) / 2;
+	var offsety = (canvas.height-height*54.5) / 2;
+	context.translate( offsetx, offsety );
 
 	var x, y, a, b, dir, index, row, col, dist;
 	for( var i = arrLen-1; i >= 3; i-=4 ) {
@@ -96,9 +107,9 @@ function render() {
 		x = points[i-3];
 		y = points[i-2];
 		a = points[i-1];
-		b = points[i];
+		//b = points[i];
 
-		dist = distanceTo( x, y, canvas.width/2, canvas.height/2 );
+		dist = distanceTo( x+offsetx, y+offsety, canvas.width/2, canvas.height/2 );
 		dist = Math.min( Math.max( dist, 0 ), canvas.width*0.46 );
 		dist /= canvas.width*0.46;
 
@@ -135,4 +146,21 @@ function distanceTo( x1, y1, x2, y2 ) {
 
 function rad( deg ) {
 	return deg * ( Math.PI / 180 );
+}
+
+function clone( elem ) {
+	var $elem = $( elem );
+	var $clone = $elem.clone();
+	var offset = $elem.offset();
+
+	$elem
+	.addClass( 'cloned' );
+
+	$clone
+	.addClass( 'clone' )
+	.css( 'top', offset.top+'px' )
+	.css( 'left', offset.left+'px' )
+	.css( 'width', $elem.width()+'px' )
+	.css( 'height', $elem.height()+'px' )
+	.appendTo( 'body' );
 }
