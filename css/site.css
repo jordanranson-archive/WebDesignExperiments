@@ -60,6 +60,8 @@ table {
 @gray: #555;
 @darkGray: #222;
 
+@easing: cubic-bezier(0.455, 0.030, 0.515, 0.955);
+
 
 /*  
    General styles 
@@ -78,6 +80,8 @@ body {
 
 a, a:link {
 	color: @red;
+
+	transition: 0.1s @easing color, 0.1s @easing background;
 }
 
 a:visited {
@@ -111,6 +115,7 @@ header {
 	top: 35px;
 	left: 20px;
 	right: 20px;
+	height: 0px;
 	z-index: 200;
 
 	line-height: 1;
@@ -128,13 +133,15 @@ header {
 			box-sizing: border-box;
 			height: 32px;
 
+			transition: 0.1s @easing all;
+
 			font: 10pt 'Open Sans', sans-serif;
 			line-height: 32px;
 			background: @transBlack;
 			color: #555;
 			text-align: center;
 			border: none;
-			ouline: none;
+			outline: 6px solid transparent;
 			text-transform: uppercase;
 
 			&:focus {
@@ -148,11 +155,13 @@ header {
 			display: inline-block;
 			width: 32px;
 			height: 32px;
-			margin-left: 5px;
+
+			transition: 0.1s @easing color;
 
 			cursor: pointer;
 			font-size: 28pt;
 			font-weight: 700;
+			text-align: center;
 			line-height: 32px;
 			color: @gray;
 
@@ -204,25 +213,37 @@ h1 {
 	padding: 0 0 0 22px;
 	float: left;
 
+	transition: 0.2s @easing all;
+
 	color: @white;
 	line-height: 32px;
 	text-transform: uppercase;
 	cursor: pointer;
-}
 
-h1:before {
-	content: '';
-	display: block;
-	position: absolute;
-	top: 50%;
-	left: 3px;
-	width: 13px;
-	height: 13px;
-	margin-top: -6.5px;
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 50%;
+		left: 3px;
+		width: 13px;
+		height: 13px;
+		margin-top: -6.5px;
 
-	transform: rotate(45deg);
+		transition: 0.2s @easing all;
+		transform: rotate(45deg);
 
-	background: @red;
+		background: @red;
+	}
+
+	&:hover {
+		padding-left: 33px;
+
+		&:before {
+			transform: rotate( 45+180deg );
+			background: @white;
+		}
+	}
 }
 
 
@@ -236,6 +257,10 @@ h1:before {
 	padding: 140px 0;
 	margin: 0 auto;
 	width: 600px;
+
+	transition: 0.2s @easing opacity;
+
+	&.fade { opacity: 0; }
 }
 
 h2, hr, section {
@@ -388,10 +413,11 @@ section {
 
 		perspective: 80rem;
   		perspective-origin: 50% 50% 0;
+		transition: 0.2s @easing all;
 
   		.media, article {
 			transform-style: preserve-3d;
-			transition: 0.2s linear all;
+			transition: 0.2s @easing all;
 			transform: rotateY( 0deg );
 
 			&:before {
@@ -404,7 +430,7 @@ section {
 				height: 100%;
   				z-index: 152;
 
-				transition: 0.2s linear all;
+				transition: 0.2s @easing all;
 
 				background: @black;
 				opacity: 0;
@@ -425,39 +451,35 @@ section {
 			transform-origin: 100% 50% 0;
   		}
 
-		&.tweet {
-			.left, .right {
-				position: absolute;
-				top: 0;
-				width: 50%;
-				height: 100%;
-				overflow: hidden;
+		.left, .right {
+			position: absolute;
+			top: 0;
+			width: 50%;
+			height: 100%;
+			overflow: hidden;
 
-				transition: 0.2s linear all;
-			}
+			transition: 0.2s @easing all;
+		}
 
-			.left {
-				left: 0;
-				transform-origin: 0% 50% 0;
-
-				article {
-					margin-right: -100%;
-				}
-			}
-
-			.right {
-				right: 0;
-				transform-origin: 100% 50% 0;
-			}
+		.left {
+			left: 0;
+			transform-origin: 0% 50% 0;
 
 			article {
-				width: 200%;
-				bottom: auto;
-				margin: 0;
+				margin-right: -100%;
+			}
+
+			var {
+				display: none;
 			}
 		}
 
-		&:active, &.active {
+		.right {
+			right: 0;
+			transform-origin: 100% 50% 0;
+		}
+
+		&.active {
 			.media, article {
 				&:before {
 					opacity: 0.7;
@@ -467,32 +489,51 @@ section {
 			&.article {
 				.media {
 					transform: 
-						rotateY( 90deg );
+						rotateY( 70deg );
 				}
 
 				article {
 					transform: 
-						rotateY( -90deg );
+						rotateY( -70deg );
 				}
 			}
 
-			&.tweet {
-				.left, .right {
-					position: absolute;
+			.left {
+				transform: 
+					rotateY( 70deg );
+			}
+
+			.right {
+				transform: 
+					rotateY( -70deg );
+			}
+		}
+
+		&.fullscreen {
+			&.article {
+				.media {
 					top: 0;
-					width: 50%;
-					height: 100%;
+					left: 0;
+					bottom: 0;
 				}
 
-				.left {
-					transform: 
-						rotateY( 90deg );
+				article {
+					top: 0;
+					right: 0;
+					bottom: 0;
 				}
+			}
 
-				.right {
-					transform: 
-						rotateY( -90deg );
-				}
+			.left {
+				top: 0;
+				left: 0;
+				bottom: 0;
+			}
+
+			.right {
+				top: 0;
+				right: 0;
+				bottom: 0;
 			}
 		}
 	}

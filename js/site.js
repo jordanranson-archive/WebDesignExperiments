@@ -5,6 +5,7 @@ var arrLen,
 	canvas,
 	context,
 	pattern,
+	lockScroll = false,
 	triangle = {},
 	mousex = 0,
 	mousey = 0,
@@ -21,7 +22,6 @@ window.requestAnimFrame = (function(){
 })();
 
 window.onload = function() {
-	console.clear();
 
 	var $content = $( '.content' );
 
@@ -51,7 +51,7 @@ window.onload = function() {
 	}
 
 	// create bg pattern
-	var bb = document.createElement( 'canvas' );
+	/*var bb = document.createElement( 'canvas' );
 		bb.width = 5;
 		bb.height = 5;
 	var ctx = bb.getContext( '2d' );
@@ -63,7 +63,7 @@ window.onload = function() {
 		ctx.fillRect(2,2,1,1);
 		ctx.fillRect(3,3,1,1);
 		ctx.fillRect(4,4,1,1);
-	pattern = context.createPattern( bb, 'repeat' );
+	pattern = context.createPattern( bb, 'repeat' );*/
 
 	this.addEventListener( 'mousemove', function( evt ) {
 		mousex = evt.clientX;
@@ -75,7 +75,7 @@ window.onload = function() {
 		canvas.height = this.innerHeight;
 	});
 
-	$content.on( 'click', 'section', function( evt ) {
+	$content.on( 'click', 'section:not(.tweet,.gallery)', function( evt ) {
 		clone( this );
 	});
 
@@ -152,6 +152,7 @@ function clone( elem ) {
 	var $elem = $( elem );
 	var $clone = $elem.clone();
 	var offset = $elem.offset();
+	var scrollTop = $( 'body' ).scrollTop();
 
 	$elem
 	.addClass( 'cloned' );
@@ -163,8 +164,8 @@ function clone( elem ) {
 	.css( 'width', $elem.width()+'px' )
 	.css( 'height', $elem.height()+'px' );
 
-	if( $clone.hasClass( 'tweet' ) ) {
-		var $content = $clone.find( 'article' );
+	if( $clone.hasClass( 'media' ) ) {
+		var $content = $clone.find( '.media' );
 		var $newContent = $content.clone();
 
 		$content.wrap( '<div class="left"></div>' );
@@ -173,6 +174,23 @@ function clone( elem ) {
 		$newContent.parent().appendTo( $clone );
 	}
 
-	$clone.appendTo( 'body' )
+	$clone.appendTo( 'body' );
 	setTimeout( function() { $clone.addClass( 'active' ) }, 0 );
+
+
+	setTimeout( function() {
+		$( '.content' ).addClass( 'fade' );
+
+		$clone
+		.css( 'top', 102+scrollTop+'px' )
+		.css( 'bottom', 35+'px' )
+		.css( 'left', 0+'px' )
+		.css( 'right', 0+'px' )
+		.css( 'width', '100%' )
+		.css( 'height', window.innerHeight-102-35 )
+		.addClass( 'fullscreen' ) 
+		.removeClass( 'active' );
+
+		lockScroll = true;
+	}, 1000 );
 }
