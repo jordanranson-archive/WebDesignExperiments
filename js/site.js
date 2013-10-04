@@ -97,7 +97,6 @@ window.onload = function() {
 					$section.remove();
 					clearInterval( t );
 				}
-				console.log( 'lurking...' );
 			}, 33 );
 		}
 	});

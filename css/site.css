@@ -467,7 +467,7 @@ section {
 
   		.media, article {
 			transform-style: preserve-3d;
-			transition: 0.2s @easing all;
+			transition: 0.2s @easing transform;
 			transform: rotateY( 0deg );
 
 			&:before {
@@ -499,6 +499,8 @@ section {
 			width: 50%;
 
 			transform-origin: 100% 50% 0;
+
+			> * { transition: 0.2s @easing opacity; }
   		}
 
 		.left, .right {
@@ -543,8 +545,8 @@ section {
 				}
 
 				article {
-					transform: 
-						rotateY( -70deg );
+					transform: rotateY( -70deg );
+					> * { opacity: 0; }
 				}
 			}
 
