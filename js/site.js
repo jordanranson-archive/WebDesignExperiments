@@ -27,8 +27,8 @@ window.onload = function() {
 
 	var $content = $( '.content' );
 
-	width = Math.max( 24, (window.innerWidth/32<<0)+6 );
-	height = Math.max( 18, (window.innerHeight/55.5<<0)+6 );
+	width = Math.max( 24, (window.innerWidth/32<<0) );
+	height = Math.max( 18, (window.innerHeight/55.5<<0) );
 	arrLen = (width*height)*4;
 	points = new Float32Array( arrLen );
 	canvas = document.getElementById( 'background' );
@@ -122,19 +122,20 @@ function render() {
 	context.clearRect( 0, 0, canvas.width, canvas.height );
 	context.save();
 
-	if( !lockBackground ) now += 1;
 	var offsetx = (canvas.width-width*32) / 2;
 	var offsety = (canvas.height-height*55.5) / 2;
-	var ox = Math.sin(now/2000)*300;
-	var oy = Math.sin(now/2000)*300;
-
-	context.translate( offsetx, offsety );
 
 	var mx = mousex - canvas.width/2;
-		mx *= 0.00075;
 	var my = mousey - canvas.height/2;
-		my *= 0.00075;
 
+
+	context.translate( offsetx, offsety );
+	/*$( '.content' )
+	.css( 'transform', 'translateX('+((mx*-0.01)<<0)+'px) translateY('+((my*-0.01)<<0)+'px)' )
+	.css( '-moz-transform', 'translateX('+((mx*-0.01)<<0)+'px) translateY('+((my*-0.01)<<0)+'px)' )
+	.css( '-webkit-transform', 'translateX('+((mx*-0.01)<<0)+'px) translateY('+((my*-0.01)<<0)+'px)' )
+	*/
+	
 	var x, y, a, b, dir, index, row, col, dist;
 	for( var i = arrLen-1; i >= 3; i-=4 ) {
 		index = ((i+1)/4)-1;
@@ -144,28 +145,26 @@ function render() {
 			  col % 2 === 0 ? 0 : 180 :
 			  col % 2 === 0 ? 180 : 0;
 
-		if( !lockBackground ) {
-			points[i-3] += mx;
-			points[i-2] += my;
-		}
-
 		x = points[i-3];
 		y = points[i-2];
 		a = points[i-1];
 
-		if( x > width*32 ) 		x = points[i-3] = 0;
-		if( x < 0 ) 			x = points[i-3] = width*32;
-		if( y > height*55.5 ) 	y = points[i-2] = 0;
-		if( y < 0 ) 			y = points[i-2] = height*55.5;
+		if( x > width*32 ) 		points[i] = 0;
+		if( x < 0 ) 			points[i] = width*32;
+		if( y > height*55.5 ) 	points[i-2] = 0;
+		if( y < 0 ) 			points[i-2] = height*55.5;
 
-		dist = distanceTo( x+offsetx+ox, y+offsety+oy, canvas.width/2, canvas.height/2 );
+		x = points[i-3] + points[i];
+		y = points[i-2];
+
+		dist = distanceTo( x+offsetx+mx*0.05, y+offsety+my*0.05, canvas.width/2, canvas.height/2 );
 		dist = Math.min( Math.max( dist, 0 ), canvas.width*0.46 );
 		dist /= canvas.width*0.46;
 
-		context.fillStyle = color[a];
+		context.fillStyle = i === 4 ? '#ff0' : color[a];
 		context.globalAlpha = (1-dist);
 
-		drawTriangle( x+ox, y+oy, dir );
+		drawTriangle( x+mx*0.05, y+my*0.05, dir );
 	}
 
 	context.restore();
@@ -227,7 +226,6 @@ function clone( elem ) {
 			.appendTo( $clone );
 	}
 
-	lockBackground = true;
 	$clone.appendTo( 'body' );
 	$( '.content' ).addClass( 'fade50' );
 	setTimeout( function() { $clone.addClass( 'active' ) }, 0 );
@@ -251,6 +249,7 @@ function clone( elem ) {
 
 		$( 'body' ).addClass( 'fullscreen' );
 
+		lockBackground = true;
 		lockScroll = true;
 		var t = setInterval( function() { 
 			if( $clone.width() === canvas.width && $clone.height() === h ) {

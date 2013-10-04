@@ -309,7 +309,7 @@ h1 {
 	margin: 0 auto;
 	width: 600px;
 
-	transition: 0.2s @easing all;
+	transition: 0.2s @easing opacity;
 
 	&.fade50 { opacity: 0.4;  }
 	&.fade { opacity: 0; }
