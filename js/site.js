@@ -72,6 +72,11 @@ window.onload = function() {
 		mousey = evt.clientY;
 	});
 
+	this.addEventListener( 'mousewheel', function( evt ) {
+		if( lockScroll ) evt.preventDefault();
+		else $( 'body' ).scrollTop( $( 'body' ).scrollTop()-evt.wheelDeltaY );
+	});
+
 	this.addEventListener( 'resize', function( evt ) { 
 		canvas.width = this.innerWidth;
 		canvas.height = this.innerHeight;
@@ -84,18 +89,20 @@ window.onload = function() {
 
 	$( '.top-btn' ).on( 'click', function( evt ) {
 		if( $( 'body' ).hasClass( 'fullscreen' ) ) {
-			var $section = $( 'body' ).find( '.clone' );
-			$section
-			.css( 'top', $section.data('top') )
-			.css( 'left', $section.data('left') )
-			.css( 'width', $section.data('width') )
-			.css( 'height', $section.data('height') );
-
-			$( 'body' ).removeClass( 'fullscreen' );
-			$( '.content' ).removeClass( 'fade' );
-
 			lockScroll = false;
 			lockBackground = true;
+
+			var $section = $( 'body' ).find( '.clone' );
+				$section
+				.css( 'top', $section.data('top') )
+				.css( 'left', $section.data('left') )
+				.css( 'width', $section.data('width') )
+				.css( 'height', $section.data('height') );
+
+			$( 'body' ).removeClass( 'fullscreen' );
+			$( '.clone' ).addClass( 'fade' );
+			$( '.content' ).removeClass( 'fade' );
+
 			var t = setInterval( function() {
 				if( $section.width()+'px' === $section.data('width') ) {
 					$( '.cloned' ).removeClass( 'cloned' );
@@ -198,6 +205,8 @@ function rad( deg ) {
 }
 
 function clone( elem ) {
+	lockScroll = true;
+
 	var $elem = $( elem );
 	var $clone = $elem.clone();
 	var offset = $elem.offset();
@@ -219,11 +228,16 @@ function clone( elem ) {
 
 	if( $clone.hasClass( 'media' ) ) {
 		var $content = $clone.find( '.media' );
-			$content.addClass( 'left' );
 		var $newContent = $content.clone();
-			$newContent
-			.addClass( 'right' )
-			.appendTo( $clone );
+
+		$content
+		.addClass( 'left' )
+		.addClass( 'spinner' );
+
+		$newContent
+		.addClass( 'right' )
+		.addClass( 'spinner' )
+		.appendTo( $clone );
 	}
 
 	$clone.appendTo( 'body' );
@@ -232,6 +246,8 @@ function clone( elem ) {
 
 	// TODO: ajax callback
 	setTimeout( function() {
+		lockBackground = true;
+
 		var h = window.innerHeight-102-35;
 
 		$( '.content' ).addClass( 'fade' );
@@ -249,8 +265,6 @@ function clone( elem ) {
 
 		$( 'body' ).addClass( 'fullscreen' );
 
-		lockBackground = true;
-		lockScroll = true;
 		var t = setInterval( function() { 
 			if( $clone.width() === canvas.width && $clone.height() === h ) {
 				lockBackground = false;
