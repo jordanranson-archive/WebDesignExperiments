@@ -161,6 +161,18 @@ function clone( elem ) {
 	.css( 'top', offset.top+'px' )
 	.css( 'left', offset.left+'px' )
 	.css( 'width', $elem.width()+'px' )
-	.css( 'height', $elem.height()+'px' )
-	.appendTo( 'body' );
+	.css( 'height', $elem.height()+'px' );
+
+	if( $clone.hasClass( 'tweet' ) ) {
+		var $content = $clone.find( 'article' );
+		var $newContent = $content.clone();
+
+		$content.wrap( '<div class="left"></div>' );
+
+		$newContent.wrap( '<div class="right"></div>' );
+		$newContent.parent().appendTo( $clone );
+	}
+
+	$clone.appendTo( 'body' )
+	setTimeout( function() { $clone.addClass( 'active' ) }, 0 );
 }
