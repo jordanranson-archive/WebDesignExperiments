@@ -79,6 +79,29 @@ window.onload = function() {
 		clone( this );
 	});
 
+	$( '.top-btn' ).on( 'click', function( evt ) {
+		if( $( 'body' ).hasClass( 'fullscreen' ) ) {
+			var $section = $( 'body' ).find( '.clone' );
+			$section
+			.css( 'top', $section.data('top') )
+			.css( 'left', $section.data('left') )
+			.css( 'width', $section.data('width') )
+			.css( 'height', $section.data('height') );
+
+			$( 'body' ).removeClass( 'fullscreen' );
+			$( '.content' ).removeClass( 'fade' );
+
+			var t = setInterval( function() { 
+				if( $section.width()+'px' === $section.data('width') ) {
+					$( '.cloned' ).removeClass( 'cloned' );
+					$section.remove();
+					clearInterval( t );
+				}
+				console.log( 'lurking...' );
+			}, 33 );
+		}
+	});
+
 	// start animating that shit
 	(function animloop() {
 		requestAnimFrame( animloop );
@@ -162,7 +185,11 @@ function clone( elem ) {
 	.css( 'top', offset.top+'px' )
 	.css( 'left', offset.left+'px' )
 	.css( 'width', $elem.width()+'px' )
-	.css( 'height', $elem.height()+'px' );
+	.css( 'height', $elem.height()+'px' )
+	.data( 'top', offset.top+'px' )
+	.data( 'left', offset.left+'px' )
+	.data( 'width', $elem.width()+'px' )
+	.data( 'height', $elem.height()+'px' );
 
 	if( $clone.hasClass( 'media' ) ) {
 		var $content = $clone.find( '.media' );
@@ -192,5 +219,6 @@ function clone( elem ) {
 		.removeClass( 'active' );
 
 		lockScroll = true;
+		$( 'body' ).addClass( 'fullscreen' );
 	}, 1000 );
 }
