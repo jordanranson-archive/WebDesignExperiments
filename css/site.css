@@ -52,6 +52,8 @@ table {
    Variables 
 */
 
+@green: #8cc152;
+@accent: @green;
 
 
 /*  
@@ -65,12 +67,12 @@ body {
 }
 
 ::selection, input::selection {
-	background: #8cc152;
+	background: @accent;
 	color: #fff;
 }
 
 a, a:link {
-	color: #8cc152;
+	color: @accent;
 }
 
 a:visited {
@@ -240,6 +242,61 @@ body.hide-meta {
 	transition-duration: 600ms;
 	transition-timing-function: ease-in-out;
 
+	header {
+		position: relative;
+		padding: 0;
+
+		border: none;
+
+		h1 {
+			position: absolute;
+			top: 0; left: 13px; bottom: 0; right: 0;
+			z-index: 70+5;
+
+			background: @accent;
+
+			color: #fff;
+			font-size: 22pt;
+			font-family: 'Open Sans', sans-serif;
+			font-weight: 700;
+			letter-spacing: 1px;
+			text-indent: 3px;
+
+			span {
+				transition-property: opacity;
+				transition-duration: 600ms;
+				transition-timing-function: ease-in-out;
+			}
+		}
+
+		&:before, &:after {
+			position: absolute;
+			content: '';
+			display: block;
+		}
+
+		&:before {
+			top: 0; left: 0; bottom: 13px;
+			width: 13px;
+			z-index: 70+1;
+
+			background: @accent;
+		}
+
+		&:after {
+			top: 40px-13px; left: 0;
+			margin: -7px 0 0 5px;
+			width: 0;
+			height: 0;
+
+			border-top: 10px solid transparent;
+			border-bottom: 10px solid transparent; 
+			border-right: 10px solid @accent; 
+
+			transform: rotate( 90+45deg );
+		}
+	}
+
 	.nav-list {
 		li {
 			height: 60px;
@@ -251,7 +308,7 @@ body.hide-meta {
 
 	span {
 		opacity: 1;
-		
+
 		transition-property: opacity;
 		transition-duration: 600ms;
 		transition-timing-function: ease-in-out;
@@ -465,6 +522,15 @@ body.hide-meta {
 
 		&.card-nav {
 			width: @collapsed-header-width;
+
+			header {
+				h1 {
+					span {
+						opacity: 0;
+					}
+				}
+			}
+
 			.nav-list {
 				li {
 
