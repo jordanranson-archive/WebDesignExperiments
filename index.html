@@ -11,115 +11,121 @@
 </head>
 <body>
 
-<canvas class="bg-cvs" id="background"></canvas>
 
-<header>
-	<h1>Ranson</h1>
-	<nav>
-		<input type="text" value="search">
-		<div class="top-btn"><em>&times;</em><span> Close</span></div>
-	</nav>
-</header>
+<!-- Main navigation, branding and user features -->
+<div class="wrapper wrapper-header">
 
-<div class="wrapper">
-<div class="content">
+<!-- Main navigation -->
+<nav class="card card-nav">
+	<header>
+		<h1>XYZ</h1>
+	</header>
+	<div class="content">
+		<ul class="nav-list">
+			<li><img src="http://www.placehold.it/32"> Navigation 1</li>
+			<li><img src="http://www.placehold.it/32"> Navigation 2</li>
+			<li><img src="http://www.placehold.it/32"> Navigation 3</li>
+			<li><img src="http://www.placehold.it/32"> Navigation 4</li>
+		</ul>
+		<ul class="nav-list fix-bottom">
+			<li><img src="http://www.placehold.it/32"> Firstname Lastname</li>
+		</ul>
+	</div>
+</nav>
 
-	<h2>October <span>2013</span></h2>
+</div><!-- End of Header Wrapper -->
 
-	<section class="article spinner">
-		<div class="media left spinner"></div>
-		<article class="right spinner">
-			<h3>This is the title of the article</h3>
-			<p>Phasellus ligula sem, laoreet luctus luctus sed, pharetra in mi. Aenean accumsan gravida convallis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
-			<footer>
-				<a href="">Download</a>
-				<var>12</var>
-			</footer>
-		</article>
-	</section>
 
-	<hr>
+<!-- Everything outside of the header -->
+<div class="wrapper wrapper-content">
 
-	<section class="tweet">
+<!-- Content sources -->
+<section class="card card-sources card-collapsable">
+	<header>
+		<h1>Content Sources</h1>
+		<aside><a><img src="http://www.placehold.it/24"></a></aside>
+	</header>
+	<div class="content">
+		<ul class="nav-list">
+			<li><img src="http://www.placehold.it/48"> Source 1</li>
+			<li><img src="http://www.placehold.it/48"> Source 2</li>
+			<li><img src="http://www.placehold.it/48"> Source 3</li>
+			<li><img src="http://www.placehold.it/48"> Source 4</li>
+			<li><img src="http://www.placehold.it/48"> Source 5</li>
+		</ul>
+	</div>
+</section>
+
+
+<!-- Content tools and filters -->
+<section class="card card-tools card-collapsable">
+	<header>
+		<h1>Content Tools</h1>
+		<aside><a><img src="http://www.placehold.it/24"></a></aside>
+	</header>
+	<div class="content">
+		<p class="form-controls">
+			<label>Lorem Ipsum</label> <span class="text-label">Dolor Sit</span>
+		</p>
+		<p class="form-controls">
+			<label>Lorem Ipsum</label> <input type="text">
+		</p>
+		<p class="form-controls">
+			<label>Lorem Ipsum</label> <input type="checkbox">
+		</p>
+	</div>
+</section>
+
+<!-- Main content -->
+<section class="card card-main-content">
+	<header>
+		<h1>Main Content</h1>
+		<aside><a><img src="http://www.placehold.it/24"></a></aside>
+	</header>
+	<div class="content">
 		<article>
-			<h3><a href="">@jordanranson</a></h3>
-			<p>Phasellus ligula sem, laoreet luctus luctus sed, pharetra in mi. Aenean accumsan gravida convallis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
-			<footer>
-				<a href="">Permalink</a>
-				<var>09</var>
-			</footer>
+			<img src="http://www.placehold.it/48">
+			<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
 		</article>
-	</section>
-
-	<hr>
-
-	<section class="media spinner">
-		<div class="media"><var class="stamped">03</var></div>
-	</section>
-
-	<hr>
-
-	<section class="gallery">
-		<div class="media"></div>
-		<div class="media"></div>
-		<div class="media"></div>
-		<div class="media"></div>
-		<div class="media"></div>
-		<div class="media"></div>
-		<div class="media"></div>
-		<div class="media"></div>
-		<var class="stamped">07</var>
-	</section>
-
-	<h2>September <span>2013</span></h2>
-
-	<section class="article">
-		<div class="media"><div class="container"></div></div>
 		<article>
-			<h3>This is the title of the article</h3>
-			<p>Phasellus ligula sem, laoreet luctus luctus sed, pharetra in mi. Aenean accumsan gravida convallis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
-			<footer>
-				<a href="">Download</a>
-				<var>12</var>
-			</footer>
+			<img src="http://www.placehold.it/48">
+			<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
 		</article>
-	</section>
-
-	<hr>
-
-	<section class="tweet">
 		<article>
-			<h3><a href="">@jordanranson</a></h3>
-			<p>Phasellus ligula sem, laoreet luctus luctus sed, pharetra in mi. Aenean accumsan gravida convallis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
-			<footer>
-				<a href="">Permalink</a>
-				<var>09</var>
-			</footer>
+			<img src="http://www.placehold.it/48">
+			<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
 		</article>
-	</section>
+		<article>
+			<img src="http://www.placehold.it/48">
+			<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+		</article>
+		<article>
+			<img src="http://www.placehold.it/48">
+			<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+		</article>
+		<article>
+			<img src="http://www.placehold.it/48">
+			<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+		</article>
+	</div>
+</section>
 
-	<hr>
 
-	<section class="media">
-		<div class="media"><var class="stamped">03</var></div>
-	</section>
+<!-- Meta Content -->
+<section class="card card-meta-content">
+	<header>
+		<h1>Meta Content</h1>
+		<aside><a><img src="http://www.placehold.it/24"></a></aside>
+	</header>
+	<div class="content">
+		<p style="text-align: center"><img src="http://www.placehold.it/128"></p>
+		<h2>Lorem ipsum dolor sit amet</h2>
+		<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+	</div>
+</section>
 
-	<hr>
+</div><!-- End of Content Wrapper -->
 
-	<section class="gallery">
-		<div class="media"></div>
-		<div class="media"></div>
-		<div class="media"></div>
-		<div class="media"></div>
-		<div class="media"></div>
-		<div class="media"></div>
-		<div class="media"></div>
-		<div class="media"></div>
-		<var class="stamped">07</var>
-	</section>
-	
-</div>
-</div>
 
 </body>
 </html>
