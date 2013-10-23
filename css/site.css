@@ -123,6 +123,25 @@ a:hover {
 	background: #e6e9ed;
 	box-shadow: 0 0 2px #aab2bd inset;
 
+	@card-header-height: 40px;
+	header {
+		height: @card-header-height;
+		padding: 0 8px;
+
+		border-bottom: solid 1px #aab2bd;
+		line-height: @card-header-height;
+
+		h1 {
+			float: left;
+			font-size: 9pt;
+		}
+
+		aside {
+			margin-top: (@card-header-height - 24px)/2px;
+			float: right;
+		}
+	}
+
 	&.card-collapsable {
 
 	}
@@ -150,5 +169,35 @@ a:hover {
 	&.card-meta-content {
 		right: 0;
 		width: @card-meta-width;
+	}
+}
+
+@media(min-width: 1366px) {
+	.card { 
+
+		&.card-collapsable {
+
+		}
+
+		&.card-sources {
+			left: 0; right: auto;
+			width: @card-sources-width;
+		}
+
+		&.card-tools {
+			left: @card-sources-width; right: auto;
+			width: @card-tools-width;
+		}
+
+		&.card-main-content {
+			left: @card-sources-width+@card-tools-width;
+			right: @card-meta-width;
+			width: auto;
+		}
+
+		&.card-meta-content {
+			right: 0;
+			width: @card-meta-width;
+		}
 	}
 }
