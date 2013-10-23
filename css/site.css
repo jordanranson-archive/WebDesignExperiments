@@ -102,6 +102,31 @@ a:hover {
 	left: 160px; right: 0;
 }
 
+.nav-list {
+
+	li {
+		height: 60px;
+		padding: 0 10px;
+
+		line-height: 60px;
+		border-bottom: solid 1px #aab2bd;
+
+		img {
+			vertical-align: middle;
+		}
+	}
+
+	&.fix-bottom {
+		position: absolute;
+		bottom: 0;
+		width: 160px;
+
+		li {
+			border-top: solid 1px #aab2bd;
+		}
+	}
+}
+
 
 /*  
    Card layout 
@@ -215,6 +240,7 @@ a:hover {
 /* 
  * Medium screen size (< 1366px width)
  * -----------------------------------
+ * Fixes the sources card to the left so other content will flow under it.
  */
 
 @media(max-width: 1206px) {
@@ -233,16 +259,13 @@ a:hover {
 /* 
  * Small monitor/medium tablet screen size (< 1006px width)
  * -----------------------------------
+ * Fixes the tools card to the left so other content will flow under it.
  */
 
 @media(max-width: 1006px) {
 	.card { 
 		&.card-collapsable {
 
-		}
-
-		&.card-sources {
-			left: -@card-sources-width+40px; right: auto;
 		}
 
 		&.card-tools {
@@ -257,18 +280,52 @@ a:hover {
  * -----------------------------------
  */
 
+@collapsed-header-width: 54px;
 @media(max-width: 768px) {
+	.wrapper-header {
+		width: @collapsed-header-width;
+	}
+
+	.wrapper-content {
+		left: @collapsed-header-width;
+	}
+
 	.card { 
 		&.card-collapsable {
 
 		}
 
-		&.card-sources {
-			left: -@card-sources-width+40px; right: auto;
-		}
+		&.card-nav {
+			width: @collapsed-header-width;
+			.nav-list {
+				li {
 
-		&.card-tools {
-			left: -@card-sources-width+40px; right: auto;
+				}
+
+				span {
+					display: none;
+				}
+			}
 		}
 	}
 }
+
+
+/* 
+ * Large phones (< 494px width)
+ * -----------------------------------
+ * Fixes the content card to the left so other content will flow under it.
+ */
+/*
+@media(max-width: 494px) {
+	.card { 
+		&.card-collapsable {
+
+		}
+
+		&.card-main-content {
+			left: -326px;
+			right: auto;
+		}
+	}
+}*/
