@@ -202,6 +202,15 @@ a:hover {
 	}
 }
 
+body.hide-meta {
+	.card {
+		&.card-meta-content {
+			display: none;
+		}
+	}
+}
+
+
 /* 
  * Max screen size (> 1366px width)
  * --------------------------------
@@ -234,11 +243,27 @@ a:hover {
 			width: @card-meta-width;
 		}
 	}
+
+	body.hide-meta {
+		.card {
+			&.card-sources {
+				right: @card-main-width+@card-tools-width;
+			}
+
+			&.card-tools {
+				right: @card-main-width;
+			}
+
+			&.card-meta-content {
+				display: none;
+			}
+		}
+	}
 }
 
 
 /* 
- * Medium screen size (< 1366px width)
+ * Medium screen size (< 1206px width)
  * -----------------------------------
  * Fixes the sources card to the left so other content will flow under it.
  */
@@ -270,6 +295,20 @@ a:hover {
 
 		&.card-tools {
 			left: -@card-sources-width+40px; right: auto;
+		}
+	}
+
+	body.hide-meta {
+		.card {
+			&.card-sources {
+			}
+
+			&.card-tools {
+			}
+
+			&.card-main-content {
+				right: 0;
+			}
 		}
 	}
 }
@@ -305,6 +344,79 @@ a:hover {
 				span {
 					display: none;
 				}
+			}
+		}
+	}
+}
+
+
+/* 
+ * Collapsed meta panel
+ */
+
+@media(max-width: 1366px) {
+	body.hide-meta {
+		.card {
+			&.card-sources {
+				left: 0;
+			}
+
+			&.card-tools {
+				left: @card-sources-width;
+			}
+
+			&.card-main-content {
+				left: @card-sources-width+@card-tools-width;
+			}
+		}
+	}
+}
+
+@media(max-width: 1046px) {
+	body.hide-meta {
+		.card {
+			&.card-sources {
+				left: auto; right: @card-main-width+@card-tools-width;
+			}
+
+			&.card-tools {
+				left: auto; right: @card-main-width;
+			}
+
+			&.card-main-content {
+				left: auto; right: 0;
+			}
+		}
+	}
+}
+
+@media(max-width: 886px) {
+	body.hide-meta {
+		.card {
+			&.card-sources {
+				left: -@card-sources-width+40px; right: auto;
+			}
+
+			&.card-tools {
+				left: auto; right: @card-main-width;
+			}
+
+			&.card-main-content {
+				left: auto; right: 0;
+			}
+		}
+	}
+}
+
+@media(max-width: 580px) {
+	body.hide-meta {
+		.card {
+			&.card-tools {
+				left: -@card-sources-width+40px; right: auto;
+			}
+
+			&.card-main-content {
+				left: auto; right: 0;
 			}
 		}
 	}
