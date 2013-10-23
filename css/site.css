@@ -149,35 +149,44 @@ a:hover {
 	&.card-nav {
 		left: 0;
 		width: @card-nav-width;
+		z-index: 70;
 	}
 
 	&.card-sources {
 		right: @card-meta-width+@card-main-width+@card-tools-width;
 		width: @card-sources-width;
+		z-index: 60;
 	}
 
 	&.card-tools {
 		right: @card-meta-width+@card-main-width;
 		width: @card-tools-width;
+		z-index: 50;
 	}
 
 	&.card-main-content {
 		right: @card-meta-width;
 		width: @card-main-width;
+		z-index: 40;
 	}
 
 	&.card-meta-content {
 		right: 0;
 		width: @card-meta-width;
+		z-index: 30;
 	}
 }
 
+/* 
+ * Max screen size (> 1366px width)
+ * --------------------------------
+ * This makes the sources and tools cards stick to the left of their wrapper
+ * instead of the right. This allows the main content card to resize freely
+ * with the browser window, maximizing screen usage.
+ */
+
 @media(min-width: 1366px) {
 	.card { 
-
-		&.card-collapsable {
-
-		}
 
 		&.card-sources {
 			left: 0; right: auto;
@@ -198,6 +207,68 @@ a:hover {
 		&.card-meta-content {
 			right: 0;
 			width: @card-meta-width;
+		}
+	}
+}
+
+
+/* 
+ * Medium screen size (< 1366px width)
+ * -----------------------------------
+ */
+
+@media(max-width: 1206px) {
+	.card { 
+		&.card-collapsable {
+
+		}
+
+		&.card-sources {
+			left: -@card-sources-width+40px; right: auto;
+		}
+	}
+}
+
+
+/* 
+ * Small monitor/medium tablet screen size (< 1006px width)
+ * -----------------------------------
+ */
+
+@media(max-width: 1006px) {
+	.card { 
+		&.card-collapsable {
+
+		}
+
+		&.card-sources {
+			left: -@card-sources-width+40px; right: auto;
+		}
+
+		&.card-tools {
+			left: -@card-sources-width+40px; right: auto;
+		}
+	}
+}
+
+
+/* 
+ * Small tablet screen size (< 768px width)
+ * -----------------------------------
+ */
+
+@media(max-width: 768px) {
+	.card { 
+		&.card-collapsable {
+
+		}
+
+		&.card-sources {
+			left: -@card-sources-width+40px; right: auto;
+		}
+
+		&.card-tools {
+			left: -@card-sources-width+40px; right: auto;
 		}
 	}
 }
