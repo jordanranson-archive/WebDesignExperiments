@@ -113,7 +113,7 @@ a:hover {
 	left: 0;
 	width: 160px;
 
-	transition-property: right width;
+	transition-property: right, width;
 	transition-duration: @duration-medium;
 	transition-timing-function: @ease-in-out;
 }
@@ -121,7 +121,7 @@ a:hover {
 .wrapper-content {
 	left: 160px; right: 0;
 
-	transition-property: left width;
+	transition-property: left, width;
 	transition-duration: @duration-medium;
 	transition-timing-function: @ease-in-out;
 
@@ -131,7 +131,7 @@ a:hover {
 
 	li {
 		padding: 0 10px;
-		border-bottom: solid 1px #aab2bd;
+		border-bottom: solid 1px @light-gray;
 
 		img {
 			vertical-align: middle;
@@ -144,7 +144,7 @@ a:hover {
 		width: 160px;
 
 		li {
-			border-top: solid 1px #aab2bd;
+			border-top: solid 1px @light-gray;
 		}
 	}
 }
@@ -182,15 +182,15 @@ a:hover {
 	height: 100%;
 	overflow: hidden;
 
-	background: #e6e9ed;
-	box-shadow: 0 0 2px #aab2bd inset;
+	background: @white;
+	box-shadow: -1px 0 0 @medium-gray inset;
 
 	@card-header-height: 40px;
 	header {
 		height: @card-header-height;
 		padding: 0 8px;
 
-		border-bottom: solid 1px #aab2bd;
+		border-bottom: solid 1px @medium-gray;
 		line-height: @card-header-height;
 
 		h1 {
@@ -210,9 +210,16 @@ a:hover {
 
 	// TODO: Break out into responsive chunks
 	&.animate-slide-out {
-		transition-property: left right width;
-		transition-duration: @duration-medium;
-		transition-timing-function: @ease-in-out;
+		&.card-sources, &.card-tools {
+			transition-property: left, right, width;
+			transition-duration: @duration-medium;
+			transition-timing-function: @ease-in-out;
+		}
+		&.card-meta-content {
+			transition-property: right, -webkit-transform, opacity;
+			transition-duration: @duration-medium;
+			transition-timing-function: @ease-in-out;
+		}
 	}
 
 	&.card-nav {
@@ -243,13 +250,16 @@ a:hover {
 		right: 0;
 		width: @card-meta-width;
 		z-index: 30;
+		-webkit-transform-origin: 50% 50%;
 	}
 }
 
 body.hide-meta {
 	.card {
 		&.card-meta-content {
-			display: none;
+			right: 0;
+			opacity: 0;
+			-webkit-transform: scale( 0, 0 );
 		}
 	}
 }
@@ -259,7 +269,7 @@ body.hide-meta {
  */
 
 .card-nav {
-	transition-property: right width;
+	transition-property: right, width;
 	transition-duration: @duration-medium;
 	transition-timing-function: @ease-in-out;
 
@@ -368,7 +378,7 @@ body.hide-meta {
 
 .card-main-content {
 	article {
-		border-bottom: solid 1px #aab2bd; 
+		border-bottom: solid 1px @light-gray; 
 		box-sizing: border-box;
 		padding: 10px;
 		width: 100%;
@@ -437,7 +447,9 @@ body.hide-meta {
 			}
 
 			&.card-meta-content {
-				display: none;
+				right: 0;
+				opacity: 0;
+				-webkit-transform: scale( 0, 0 );
 			}
 		}
 	}

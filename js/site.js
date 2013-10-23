@@ -2,10 +2,12 @@ var $cards,
 	$cardSources,
 	$cardTools,
 	$cardContent,
-	$cardMeta;
+	$cardMeta,
+	$body;
 
 $(document).ready(function() {
 
+	$body			= $('body');
 	$cards 			= $('.card');
 	$cardSources 	= $('.card-sources');
 	$cardTools 		= $('.card-tools');
@@ -14,7 +16,7 @@ $(document).ready(function() {
 
 	$cardSources.click	( toggleSideCard );
 	$cardTools.click	( toggleSideCard );
-	$cardContent.click	( toggleContentCard );
+	$cardContent.click	( toggleMetaCard );
 
 });
 
@@ -76,7 +78,53 @@ function toggleContentCard( evt ) {
 			contentTimer = setTimeout( function() {
 				$self.removeClass('animate-slide-out');
 				$cardMeta.removeClass('animate-slide-out');
-			}, 600 );*/
+			}, 400 );*/
 		}
+	}
+}
+
+var metaTimer;
+function toggleMetaCard( evt ) {
+	$self = $(this);
+
+	if( $body.hasClass('hide-meta') ) {
+		console.log( 'out' )
+		$cardMeta
+		.removeClass('animate-slide-out')
+		.css('right','320px')
+		.css('-webkit-transform','scale( 1, 1 )')
+		.css('opacity', '1')
+
+		setTimeout( function() {
+			$cardMeta
+			.addClass('animate-slide-out')
+			.css('right', '0');
+		}, 1 );
+
+		$body
+		.removeClass('hide-meta');
+
+		clearTimeout( metaTimer );
+	} else {
+		console.log( 'in' )
+		$cardMeta
+		.removeClass('animate-slide-out')
+		.css('right','0')
+		.css('-webkit-transform','scale( 1, 1 )')
+		.css('opacity', '1')
+
+		setTimeout( function() {
+			$cardMeta
+			.addClass('animate-slide-out')
+			.css('-webkit-transform','scale( 0, 0 )')
+			.css('opacity', '0')
+		}, 1 );
+
+		$body
+		.addClass('hide-meta');
+
+		metaTimer = setTimeout( function() {
+			$cardMeta.removeClass('animate-slide-out');
+		}, 400 );
 	}
 }
