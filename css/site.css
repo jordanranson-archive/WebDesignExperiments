@@ -427,7 +427,7 @@ body.hide-meta {
 
 		&.card-main-content {
 			left: @card-sources-width+@card-tools-width;
-			right: @card-meta-width;
+			/*right: @card-meta-width;*/
 			width: auto;
 		}
 
@@ -558,6 +558,16 @@ body.hide-meta {
  * Collapsed meta panel
  */
 
+@media(min-width: 1260px) {
+	body.hide-meta {
+		.card {
+			&.card-main-content {
+				width: 520px;
+			}
+		}
+	}
+}
+
 @media(max-width: 1260px) {
 	body.hide-meta {
 		.card {
@@ -571,6 +581,18 @@ body.hide-meta {
 
 			&.card-main-content {
 				left: @card-sources-width+@card-tools-width;
+				width: 520px;
+			}
+		}
+	}
+}
+
+@media(max-width: 1014px) {
+	body.hide-meta {
+		.card {
+			&.card-main-content {
+				right: 0;
+				width: auto;
 			}
 		}
 	}
@@ -589,6 +611,7 @@ body.hide-meta {
 
 			&.card-main-content {
 				left: auto; right: 0;
+				width: 446px;
 			}
 		}
 	}
