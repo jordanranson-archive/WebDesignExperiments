@@ -111,20 +111,11 @@ a:hover {
 
 .wrapper-header {
 	left: 0;
-	width: 160px;
-
-	transition-property: right, width;
-	transition-duration: @duration-medium;
-	transition-timing-function: @ease-in-out;
+	width: 54px;
 }
 
 .wrapper-content {
-	left: 160px; right: 0;
-
-	transition-property: left, width;
-	transition-duration: @duration-medium;
-	transition-timing-function: @ease-in-out;
-
+	left: 54px; right: 0;
 }
 
 .nav-list {
@@ -161,7 +152,7 @@ a:hover {
 
 // Variables
 
-@card-nav-width: 160px;
+@card-nav-width: 54px;
 @card-sources-width: 200px;
 @card-tools-width: 240px;
 @card-main-width: 460px-14px;
@@ -183,7 +174,7 @@ a:hover {
 	overflow: hidden;
 
 	background: @white;
-	box-shadow: -1px 0 0 @medium-gray inset;
+	box-shadow: 0px 0 2px red inset;
 
 	@card-header-height: 40px;
 	header {
@@ -206,20 +197,6 @@ a:hover {
 
 	&.card-collapsable {
 
-	}
-
-	// TODO: Break out into responsive chunks
-	&.animate-slide-out {
-		&.card-sources, &.card-tools {
-			transition-property: left, right, width;
-			transition-duration: @duration-medium;
-			transition-timing-function: @ease-in-out;
-		}
-		&.card-meta-content {
-			transition-property: right, -webkit-transform, opacity;
-			transition-duration: @duration-medium;
-			transition-timing-function: @ease-in-out;
-		}
 	}
 
 	&.card-nav {
@@ -269,10 +246,6 @@ body.hide-meta {
  */
 
 .card-nav {
-	transition-property: right, width;
-	transition-duration: @duration-medium;
-	transition-timing-function: @ease-in-out;
-
 	header {
 		position: relative;
 		padding: 0;
@@ -294,9 +267,7 @@ body.hide-meta {
 			text-indent: 3px;
 
 			span {
-				transition-property: opacity;
-				transition-duration: @duration-medium;
-				transition-timing-function: @ease-in-out;
+				opacity: 0;
 			}
 		}
 
@@ -334,15 +305,11 @@ body.hide-meta {
 
 			line-height: 60px;
 			white-space: nowrap;
+
+			span {
+				opacity: 0;
+			}
 		}
-	}
-
-	span {
-		opacity: 1;
-
-		transition-property: opacity;
-		transition-duration: @duration-medium;
-		transition-timing-function: @ease-in-out;
 	}
 }
 
@@ -391,11 +358,6 @@ body.hide-meta {
 	}
 }
 
-
-/* 
- * Meta content card 
- */
-
 .card-meta-content {
 	.content {
 		padding: 10px;
@@ -404,14 +366,53 @@ body.hide-meta {
 
 
 /* 
+ * Max screen size (> 1440px width)
+ * --------------------------------
+ */
+@media(min-width: 1440px) {
+	.wrapper-content {
+		width: 1280px;
+		right: auto;
+	}
+}
+
+
+/* 
  * Max screen size (> 1366px width)
+ * --------------------------------
+ */
+@media(min-width: 1366px) {
+	.wrapper-header {
+		width: 160px;
+	}
+
+	.wrapper-content {
+		left: 160px;
+	}
+
+	.card { 
+		&.card-collapsable {
+
+		}
+
+		&.card-nav {
+			width: 160px;
+			header h1 span { opacity: 1; }
+			.nav-list li span { opacity: 1; }
+		}
+	}
+}
+
+
+/* 
+ * Large screen size (> 1260px width)
  * --------------------------------
  * This makes the sources and tools cards stick to the left of their wrapper
  * instead of the right. This allows the main content card to resize freely
  * with the browser window, maximizing screen usage.
  */
 
-@media(min-width: 1366px) {
+@media(min-width: 1260px) {
 	.card { 
 
 		&.card-sources {
@@ -455,24 +456,34 @@ body.hide-meta {
 	}
 }
 
-@media(max-width: 1366px) {
+@media(max-width: 1260px) {
 	.card {
 		&.card-sources {
+			/*left: 0; right: auto;*/
 			&.slide-out {
 				.slide-out( 0 );
 			}
 		}
+
+		/*&.card-tools {
+			left: @card-sources-width; right: auto;
+		}
+
+		&.card-main-content {
+			left: @card-sources-width + @card-tools-width;
+			width: auto;
+		}*/
 	}
 }
 
 
 /* 
- * Medium screen size (< 1206px width)
+ * Medium screen size (< 1098px width)
  * -----------------------------------
  * Fixes the sources card to the left so other content will flow under it.
  */
 
-@media(max-width: 1206px) {
+@media(max-width: 1099px) {
 	.card { 
 		&.card-collapsable {
 
@@ -492,12 +503,12 @@ body.hide-meta {
 
 
 /* 
- * Small monitor/medium tablet screen size (< 1006px width)
+ * Small monitor/medium tablet screen size (< 900px width)
  * -----------------------------------
  * Fixes the tools card to the left so other content will flow under it.
  */
 
-@media(max-width: 1006px) {
+@media(max-width: 900px) {
 	.card { 
 		&.card-collapsable {
 
@@ -538,43 +549,8 @@ body.hide-meta {
  * -----------------------------------
  */
 
-@collapsed-header-width: 54px;
 @media(max-width: 768px) {
-	.wrapper-header {
-		width: @collapsed-header-width;
-	}
 
-	.wrapper-content {
-		left: @collapsed-header-width;
-	}
-
-	.card { 
-		&.card-collapsable {
-
-		}
-
-		&.card-nav {
-			width: @collapsed-header-width;
-
-			header {
-				h1 {
-					span {
-						opacity: 0;
-					}
-				}
-			}
-
-			.nav-list {
-				li {
-
-				}
-
-				span {
-					opacity: 0;
-				}
-			}
-		}
-	}
 }
 
 
@@ -582,7 +558,7 @@ body.hide-meta {
  * Collapsed meta panel
  */
 
-@media(max-width: 1366px) {
+/*@media(max-width: 1366px) {
 	body.hide-meta {
 		.card {
 			&.card-sources {
@@ -598,9 +574,9 @@ body.hide-meta {
 			}
 		}
 	}
-}
+}*/
 
-@media(max-width: 1046px) {
+/*@media(max-width: 1046px) {
 	body.hide-meta {
 		.card {
 			&.card-sources {
@@ -616,9 +592,9 @@ body.hide-meta {
 			}
 		}
 	}
-}
+}*/
 
-@media(max-width: 886px) {
+/*@media(max-width: 886px) {
 	body.hide-meta {
 		.card {
 			&.card-sources {
@@ -634,9 +610,9 @@ body.hide-meta {
 			}
 		}
 	}
-}
+}*/
 
-@media(max-width: 580px) {
+/*@media(max-width: 580px) {
 	body.hide-meta {
 		.card {
 			&.card-tools {
@@ -648,7 +624,7 @@ body.hide-meta {
 			}
 		}
 	}
-}
+}*/
 
 
 /* 
