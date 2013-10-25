@@ -558,7 +558,7 @@ body.hide-meta {
  * Collapsed meta panel
  */
 
-/*@media(max-width: 1366px) {
+@media(max-width: 1260px) {
 	body.hide-meta {
 		.card {
 			&.card-sources {
@@ -574,9 +574,9 @@ body.hide-meta {
 			}
 		}
 	}
-}*/
+}
 
-/*@media(max-width: 1046px) {
+@media(max-width: 940px) {
 	body.hide-meta {
 		.card {
 			&.card-sources {
@@ -592,9 +592,9 @@ body.hide-meta {
 			}
 		}
 	}
-}*/
+}
 
-/*@media(max-width: 886px) {
+@media(max-width: 779px) {
 	body.hide-meta {
 		.card {
 			&.card-sources {
@@ -610,9 +610,9 @@ body.hide-meta {
 			}
 		}
 	}
-}*/
+}
 
-/*@media(max-width: 580px) {
+@media(max-width: 580px) {
 	body.hide-meta {
 		.card {
 			&.card-tools {
@@ -624,7 +624,7 @@ body.hide-meta {
 			}
 		}
 	}
-}*/
+}
 
 
 /* 
