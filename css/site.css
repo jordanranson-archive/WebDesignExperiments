@@ -268,19 +268,37 @@ section.card {
 		left: 0px;
 	}
 
-	&:last-of-type {
+	&:last-of-type .card-container {
 		&:after {
-			display: none;
+			opacity: 1;
+			width: 7px;
 		}
-		box-shadow: 5px 0 7px @card-shadow;
 	}
 }
 
 body.hide-meta {
-	.card {
+	section.card {
 		&.card-meta-content {
 			right: 0;
 			opacity: 0;
+		}
+
+		.card-container {
+			&:before {
+				opacity: 0;
+				width: 0;
+			}
+			&:after {
+				opacity: 0;
+				width: 0;
+			}
+		}
+
+		&:nth-last-of-type(2) .card-container {
+			&:after {
+				opacity: 1;
+				width: 7px;
+			}
 		}
 	}
 }
@@ -366,6 +384,7 @@ body.hide-meta {
 			position: absolute;
 			top: 0; bottom: 0; right: 0px;
 			width: 7px;
+			z-index: 1000;
 
 			opacity: 1;
 			background: linear-gradient( 
@@ -515,24 +534,6 @@ body.hide-meta {
 			width: @card-meta-width;
 		}
 	}
-
-	body.hide-meta {
-		.card {
-			&.card-sources {
-				right: @card-main-width+@card-tools-width;
-			}
-
-			&.card-tools {
-				right: @card-main-width;
-			}
-
-			&.card-meta-content {
-				right: 0;
-				opacity: 0;
-				-webkit-transform: scale( 0, 0 );
-			}
-		}
-	}
 }
 
 @media(max-width: 1259px) {
@@ -672,16 +673,48 @@ body.hide-meta {
 @media(min-width: 1260px) {
 	body.hide-meta {
 		.card {
+			&.card-sources {
+				right: @card-main-width+@card-tools-width;
+			}
+
+			&.card-tools {
+				right: @card-main-width;
+			}
+			
 			&.card-main-content {
 				width: 520px;
+			}
+
+			&.card-meta-content {
+				right: 0;
+				opacity: 0;
+				-webkit-transform: scale( 0, 0 );
+			}
+
+			.card-container {
+
 			}
 		}
 	}
 }
 
-@media(max-width: 1260px) {
+@media(max-width: 1259px) {
 	body.hide-meta {
 		.card {
+			&.card-nav {
+				.card-container {
+					&:before {
+						width: 7px;
+						opacity: 1;
+					}
+
+					&:after {
+						width: 0px;
+						opacity: 0;
+					}
+				}
+			}
+
 			&.card-sources {
 				left: 0;
 			}
@@ -712,6 +745,19 @@ body.hide-meta {
 @media(max-width: 940px) {
 	body.hide-meta {
 		.card {
+			&.card-nav {
+				.card-container {
+					&:before {
+						opacity: 0;
+						width: 0;
+					}
+					&:after {
+						opacity: 1;
+						width: 7px;
+					}
+				}
+			}
+
 			&.card-sources {
 				left: auto; right: @card-main-width+@card-tools-width;
 			}
@@ -733,6 +779,11 @@ body.hide-meta {
 		.card {
 			&.card-sources {
 				left: -@card-sources-width+40px; right: auto;
+
+				.card-container:after {
+					opacity: 1;
+					width: 7px;
+				}
 			}
 
 			&.card-tools {
@@ -751,6 +802,11 @@ body.hide-meta {
 		.card {
 			&.card-tools {
 				left: -@card-sources-width+40px; right: auto;
+
+				.card-container:after {
+					opacity: 1;
+					width: 7px;
+				}
 			}
 
 			&.card-main-content {
