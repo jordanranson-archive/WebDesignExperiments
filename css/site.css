@@ -73,6 +73,9 @@ table {
 @text: @darker-gray;
 @header: @darkest-gray;
 @accent: @green;
+@body-color: @light-gray;
+
+@card-shadow: rgba(0,0,0,0.1);
 
 
 /*  
@@ -81,7 +84,7 @@ table {
 
 body {
 	font: 400 13pt/1.17 sans-serif;
-	background: @light-gray;
+	background: @body-color;
 	color: @text;
 }
 
@@ -111,7 +114,6 @@ a:hover {
 	position: absolute;
 	top: 0;
 	height: 100%;
-	overflow: hidden;
 }
 
 .wrapper-header {
@@ -126,7 +128,7 @@ a:hover {
 .nav-list {
 
 	li {
-		padding: 0 10px;
+		margin: 0 10px;
 		border-bottom: solid 1px @light-gray;
 
 		img {
@@ -172,18 +174,18 @@ a:hover {
 // Styles
 
 .card { 
+	@card-header-height: 40px;
+
 	position: absolute;
 	display: block;
 	top: 0;
 	height: 100%;
-	overflow: hidden;
 
-	@card-header-height: 40px;
 	header {
 		height: @card-header-height;
-		padding: 0 8px;
+		margin: 0 10px;
 
-		border-bottom: solid 1px @light-gray;
+		border-bottom: solid 1px @medium-gray;
 		line-height: @card-header-height;
 
 		h1 {
@@ -235,13 +237,47 @@ a:hover {
 	}
 }
 
+section.card {
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0; bottom: 0; right: -7px;
+		width: 0px;
+
+		opacity: 0;
+		background: linear-gradient( 
+			to left,
+			rgba(0,0,0,0) 0%, 
+			@card-shadow 100%
+		);
+	}
+}
+
 .card-container {
 	position: absolute;
-	top: 0px; left: 0px; right: 1px; bottom: 0px;
+	top: 0px; left: 0px; right: 0px; bottom: 0px;
 	box-sizing: border-box;
+}
 
+nav.card .card-container {
+	background: @body-color;
+}
+
+section.card .card-container {
+	left: 1px;
 	background: @white;
-	border-radius: 7px;
+}
+
+section.card:first-of-type .card-container {
+	left: 0px;
+}
+
+section.card:last-of-type {
+	&:after {
+		display: none;
+	}
+	box-shadow: 5px 0 7px @card-shadow;
 }
 
 body.hide-meta {
@@ -249,7 +285,6 @@ body.hide-meta {
 		&.card-meta-content {
 			right: 0;
 			opacity: 0;
-			-webkit-transform: scale( 0, 0 );
 		}
 	}
 }
@@ -259,13 +294,9 @@ body.hide-meta {
  */
 
 .card-nav {
-	.card-container {
-		border-radius: 0px;
-		background: transparent;
-	}
-
 	header {
 		position: relative;
+		margin: 0;
 		padding: 0;
 
 		border: none;
@@ -365,8 +396,8 @@ body.hide-meta {
 	article {
 		border-bottom: solid 1px @light-gray; 
 		box-sizing: border-box;
-		padding: 10px;
-		width: 100%;
+		padding: 10px 0;
+		margin: 0 10px;
 		height: 100px;
 
 		img {
@@ -474,7 +505,24 @@ body.hide-meta {
 	}
 }
 
-@media(max-width: 1260px) {
+@media(max-width: 1259px) {
+	.card-nav {
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0; bottom: 0; right: -7px;
+			width: 7px;
+
+			opacity: 1;
+			background: linear-gradient( 
+				to left,
+				rgba(0,0,0,0) 0%, 
+				@card-shadow 100%
+			);
+		}
+	}
+
 	.card {
 		&.card-sources {
 			/*left: 0; right: auto;*/
@@ -509,6 +557,10 @@ body.hide-meta {
 
 		&.card-sources {
 			left: -@card-sources-width+40px; right: auto;
+			&:after {
+				opacity: 1;
+				width: 7px;
+			}
 		}
 
 		&.card-tools {
@@ -533,7 +585,11 @@ body.hide-meta {
 		}
 
 		&.card-tools {
-			left: -@card-sources-width+40px; right: auto;
+			left: -@card-sources-width+41px; right: auto;
+			&:after {
+				opacity: 1;
+				width: 7px;
+			}
 		}
 
 		&.card-main-content {
