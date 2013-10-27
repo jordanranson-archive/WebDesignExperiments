@@ -185,7 +185,7 @@ a:hover {
 		height: @card-header-height;
 		margin: 0 10px;
 
-		border-bottom: solid 1px @medium-gray;
+		border-bottom: solid 2px @light-gray;
 		line-height: @card-header-height;
 
 		h1 {
@@ -237,47 +237,43 @@ a:hover {
 	}
 }
 
-section.card {
-	&:after {
-		content: '';
-		display: block;
-		position: absolute;
-		top: 0; bottom: 0; right: -7px;
-		width: 0px;
-
-		opacity: 0;
-		background: linear-gradient( 
-			to left,
-			rgba(0,0,0,0) 0%, 
-			@card-shadow 100%
-		);
-	}
-}
-
 .card-container {
 	position: absolute;
 	top: 0px; left: 0px; right: 0px; bottom: 0px;
 	box-sizing: border-box;
 }
 
-nav.card .card-container {
-	background: @body-color;
-}
+section.card {
+	.card-container {
+		left: 1px;
+		background: @white;
 
-section.card .card-container {
-	left: 1px;
-	background: @white;
-}
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0; bottom: 0; right: -7px;
+			width: 0px;
 
-section.card:first-of-type .card-container {
-	left: 0px;
-}
-
-section.card:last-of-type {
-	&:after {
-		display: none;
+			opacity: 0;
+			background: linear-gradient( 
+				to left,
+				rgba(0,0,0,0) 0%, 
+				@card-shadow 100%
+			);
+		}
 	}
-	box-shadow: 5px 0 7px @card-shadow;
+
+	&:first-of-type .card-container {
+		left: 0px;
+	}
+
+	&:last-of-type {
+		&:after {
+			display: none;
+		}
+		box-shadow: 5px 0 7px @card-shadow;
+	}
 }
 
 body.hide-meta {
@@ -358,6 +354,40 @@ body.hide-meta {
 			span {
 				opacity: 0;
 			}
+		}
+	}
+
+	.card-container {
+		background: @body-color;
+
+		&:before {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0; bottom: 0; right: 0px;
+			width: 7px;
+
+			opacity: 1;
+			background: linear-gradient( 
+				to right,
+				rgba(0,0,0,0) 0%, 
+				@card-shadow 100%
+			);
+		}
+		
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0; bottom: 0; right: -7px;
+			width: 0px;
+
+			opacity: 0;
+			background: linear-gradient( 
+				to left,
+				rgba(0,0,0,0) 0%, 
+				@card-shadow 100%
+			);
 		}
 	}
 }
@@ -506,24 +536,21 @@ body.hide-meta {
 }
 
 @media(max-width: 1259px) {
-	.card-nav {
-		&:after {
-			content: '';
-			display: block;
-			position: absolute;
-			top: 0; bottom: 0; right: -7px;
-			width: 7px;
-
-			opacity: 1;
-			background: linear-gradient( 
-				to left,
-				rgba(0,0,0,0) 0%, 
-				@card-shadow 100%
-			);
-		}
-	}
-
 	.card {
+		&.card-nav {
+			.card-container {
+				&:before {
+					width: 0px;
+					opacity: 0;
+				}
+
+				&:after {
+					width: 7px;
+					opacity: 1;
+				}
+			}
+		}
+
 		&.card-sources {
 			/*left: 0; right: auto;*/
 			&.slide-out {
@@ -557,9 +584,16 @@ body.hide-meta {
 
 		&.card-sources {
 			left: -@card-sources-width+40px; right: auto;
-			&:after {
-				opacity: 1;
-				width: 7px;
+
+			.card-container {
+				&:before {
+					opacity: 0;
+					width: 0;
+				}
+				&:after {
+					opacity: 1;
+					width: 7px;
+				}
 			}
 		}
 
@@ -586,9 +620,12 @@ body.hide-meta {
 
 		&.card-tools {
 			left: -@card-sources-width+41px; right: auto;
-			&:after {
-				opacity: 1;
-				width: 7px;
+
+			.card-container {
+				&:after {
+					opacity: 1;
+					width: 7px;
+				}
 			}
 		}
 
