@@ -1,3 +1,5 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,300italic,400italic,500,500italic,700,700italic,900,900italic,100italic);
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -58,15 +60,18 @@ table {
 @duration-long: 600ms;
 @ease-in-out: ease-in-out;
 
-@white: #f5f7fa;
+@white: #fff;
+@lighter-gray: #f5f7fa;
 @light-gray: #e6e9ed;
 @medium-gray: #ccd1d9;
 @dark-gray: #aab2bd;
-@darker-gray: #434a54;
-@green: #8cc152;
+@darker-gray: #656D78;
+@darkest-gray: #434a54;
+@black: #24282d;
+@green: #50bc5a;
 
-@body-background: @dark-gray;
 @text: @darker-gray;
+@header: @darkest-gray;
 @accent: @green;
 
 
@@ -76,7 +81,7 @@ table {
 
 body {
 	font: 400 13pt/1.17 sans-serif;
-	background: @body-background;
+	background: @light-gray;
 	color: @text;
 }
 
@@ -173,20 +178,19 @@ a:hover {
 	height: 100%;
 	overflow: hidden;
 
-	background: @white;
-	box-shadow: 0px 0 2px red inset;
-
 	@card-header-height: 40px;
 	header {
 		height: @card-header-height;
 		padding: 0 8px;
 
-		border-bottom: solid 1px @medium-gray;
+		border-bottom: solid 1px @light-gray;
 		line-height: @card-header-height;
 
 		h1 {
 			float: left;
-			font-size: 9pt;
+			font-size: 11pt;
+			font-family: 'Roboto';
+			color: @header;
 		}
 
 		aside {
@@ -231,6 +235,15 @@ a:hover {
 	}
 }
 
+.card-container {
+	position: absolute;
+	top: 0px; left: 0px; right: 1px; bottom: 0px;
+	box-sizing: border-box;
+
+	background: @white;
+	border-radius: 7px;
+}
+
 body.hide-meta {
 	.card {
 		&.card-meta-content {
@@ -246,6 +259,11 @@ body.hide-meta {
  */
 
 .card-nav {
+	.card-container {
+		border-radius: 0px;
+		background: transparent;
+	}
+
 	header {
 		position: relative;
 		padding: 0;
@@ -263,7 +281,7 @@ body.hide-meta {
 			font-size: 22pt;
 			font-family: 'Open Sans', sans-serif;
 			font-weight: 700;
-			letter-spacing: 1px;
+			letter-spacing: -1px;
 			text-indent: 3px;
 
 			span {
