@@ -1,0 +1,25 @@
+.tag {
+	padding: 1px 4px;
+
+	background: @light-gray;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 9pt;
+	letter-spacing: -1px;
+	font-weight: 800;
+
+	.shadow( @color ) {
+		color: darken(@color,40%);
+		background: @color;
+	}
+
+	&.tag-accent 	{ .shadow(@accent); color: @white; }
+	&.tag-red 		{ .shadow(@tag-red); color: @white; }
+	&.tag-orange 	{ .shadow(@tag-orange); color: @white; }
+	&.tag-yellow 	{ .shadow(@tag-yellow); }
+	&.tag-green 	{ .shadow(@tag-green); }
+	&.tag-cyan 		{ .shadow(@tag-cyan); color: @white; }
+	&.tag-teal 		{ .shadow(@tag-teal); }
+	&.tag-blue 		{ .shadow(@tag-blue); color: @white; }
+	&.tag-purple 	{ .shadow(@tag-purple); color: @white; }
+	&.tag-pink 		{ .shadow(@tag-pink); }
+}

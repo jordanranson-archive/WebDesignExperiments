@@ -1,0 +1,419 @@
+
+
+
+/* 
+ * Max screen size (> 1440px width)
+ * --------------------------------
+ */
+@media(min-width: 1440px) {
+	.wrapper-content {
+		width: 1280px;
+		right: auto;
+	}
+}
+
+
+/* 
+ * Max screen size (> 1366px width)
+ * --------------------------------
+ */
+@media(min-width: 1366px) {
+	.wrapper-header {
+		width: 160px;
+	}
+
+	.wrapper-content {
+		left: 160px;
+	}
+
+	.card { 
+		&.card-collapsable {
+
+		}
+
+		&.card-nav {
+			width: 160px;
+			header {
+				h1 {
+					font-size: 22pt;
+
+					span { 
+						opacity: 1;
+					}
+				}
+			}
+			.content-list li span { opacity: 1; }
+		}
+	}
+}
+
+
+/* 
+ * Large screen size (> 1260px width)
+ * --------------------------------
+ * This makes the sources and tools cards stick to the left of their wrapper
+ * instead of the right. This allows the main content card to resize freely
+ * with the browser window, maximizing screen usage.
+ */
+
+@media(min-width: 1260px) {
+	.card { 
+
+		&.card-sources {
+			left: 0; right: auto;
+			width: @card-sources-width;
+		}
+
+		&.card-tools {
+			left: @card-sources-width; right: auto;
+			width: @card-tools-width;
+		}
+
+		&.card-main-content {
+			left: @card-sources-width+@card-tools-width;
+			/*right: @card-meta-width;*/
+			width: auto;
+		}
+
+		&.card-meta-content {
+			right: 0;
+			width: @card-meta-width;
+		}
+	}
+}
+
+@media(max-width: 1259px) {
+	.card {
+		&.card-nav {
+			.card-container {
+				&:before {
+					width: 0px;
+					opacity: 0;
+				}
+
+				&:after {
+					width: 7px;
+					opacity: 1;
+				}
+			}
+		}
+
+		&.card-sources {
+			/*left: 0; right: auto;*/
+			&.slide-out {
+				.slide-out( 0 );
+			}
+		}
+
+		/*&.card-tools {
+			left: @card-sources-width; right: auto;
+		}
+
+		&.card-main-content {
+			left: @card-sources-width + @card-tools-width;
+			width: auto;
+		}*/
+	}
+}
+
+
+/* 
+ * Medium screen size (< 1098px width)
+ * -----------------------------------
+ * Fixes the sources card to the left so other content will flow under it.
+ */
+
+@media(max-width: 1099px) {
+	.card { 
+		&.card-collapsable {
+
+		}
+
+		&.card-sources {
+			left: -@card-sources-width+40px; right: auto;
+
+			.card-container {
+				&:before {
+					opacity: 0;
+					width: 0;
+				}
+				&:after {
+					opacity: 1;
+					width: 7px;
+				}
+			}
+
+			.expanded {
+				display: none;
+			}
+
+			.collapsed {
+				display: block;
+			}
+		}
+
+		&.card-tools {
+			&.slide-out {
+				.slide-out( 40px );
+			}
+		}
+	}
+}
+
+
+/* 
+ * Small monitor/medium tablet screen size (< 900px width)
+ * -----------------------------------
+ * Fixes the tools card to the left so other content will flow under it.
+ */
+
+@media(max-width: 900px) {
+	.card { 
+		&.card-collapsable {
+
+		}
+
+		&.card-tools {
+			left: -@card-sources-width+41px; right: auto;
+
+			.card-container {
+				&:after {
+					opacity: 1;
+					width: 7px;
+				}
+			}
+
+			.expanded {
+				display: none;
+			}
+
+			.collapsed {
+				display: block;
+			}
+		}
+
+		&.card-main-content {
+			&.slide-out {
+				.slide-out( 80px );
+				+.card-meta-content {
+					.slide-out( 80px+@card-main-width );
+				}
+			}
+		}
+	}
+
+	body.hide-meta {
+		.card {
+			&.card-sources {
+			}
+
+			&.card-tools {
+			}
+
+			&.card-main-content {
+				right: 0;
+			}
+		}
+	}
+}
+
+
+/* 
+ * Small tablet screen size (< 768px width)
+ * -----------------------------------
+ */
+
+@media(max-width: 768px) {
+
+}
+
+
+/* 
+ * Collapsed meta panel
+ */
+
+@media(min-width: 1260px) {
+	body.hide-meta {
+		.card {
+			&.card-sources {
+				right: @card-main-width+@card-tools-width;
+			}
+
+			&.card-tools {
+				right: @card-main-width;
+			}
+			
+			&.card-main-content {
+				width: 520px;
+			}
+
+			&.card-meta-content {
+				right: 0;
+				opacity: 0;
+				-webkit-transform: scale( 0, 0 );
+			}
+		}
+	}
+}
+
+@media(max-width: 1259px) {
+	body.hide-meta {
+		.card {
+			&.card-nav {
+				.card-container {
+					&:before {
+						width: 7px;
+						opacity: 1;
+					}
+
+					&:after {
+						width: 0px;
+						opacity: 0;
+					}
+				}
+			}
+
+			&.card-sources {
+				left: 0;
+			}
+
+			&.card-tools {
+				left: @card-sources-width;
+			}
+
+			&.card-main-content {
+				left: @card-sources-width+@card-tools-width;
+				width: 520px;
+			}
+
+			.expanded {
+				display: block;
+			}
+
+			.collapsed {
+				display: none;
+			}
+		}
+	}
+}
+
+@media(max-width: 1014px) {
+	body.hide-meta {
+		.card {
+			&.card-main-content {
+				right: 0;
+				width: auto;
+			}
+		}
+	}
+}
+
+@media(max-width: 940px) {
+	body.hide-meta {
+		.card {
+			&.card-nav {
+				.card-container {
+					&:before {
+						opacity: 0;
+						width: 0;
+					}
+					&:after {
+						opacity: 1;
+						width: 7px;
+					}
+				}
+			}
+
+			&.card-sources {
+				left: auto; right: @card-main-width+@card-tools-width;
+			}
+
+			&.card-tools {
+				left: auto; right: @card-main-width;
+			}
+
+			&.card-main-content {
+				left: auto; right: 0;
+				width: 446px;
+			}
+		}
+	}
+}
+
+@media(max-width: 779px) {
+	body.hide-meta {
+		.card {
+			&.card-sources {
+				left: -@card-sources-width+40px; right: auto;
+
+				.card-container:after {
+					opacity: 1;
+					width: 7px;
+				}
+
+				.expanded {
+					display: none;
+				}
+
+				.collapsed {
+					display: block;
+				}
+			}
+
+			&.card-tools {
+				left: auto; right: @card-main-width;
+			}
+
+			&.card-main-content {
+				left: auto; right: 0;
+			}
+		}
+	}
+}
+
+@media(max-width: 580px) {
+	body.hide-meta {
+		.card {
+			&.card-tools {
+				left: -@card-sources-width+40px; right: auto;
+
+				.card-container:after {
+					opacity: 1;
+					width: 7px;
+				}
+
+				.expanded {
+					display: none;
+				}
+
+				.collapsed {
+					display: block;
+				}
+			}
+
+			&.card-main-content {
+				left: auto; right: 0;
+			}
+		}
+	}
+}
+
+
+/* 
+ * Large phones (< 494px width)
+ * -----------------------------------
+ * Fixes the content card to the left so other content will flow under it.
+ */
+/*
+@media(max-width: 494px) {
+	.card { 
+		&.card-collapsable {
+
+		}
+
+		&.card-main-content {
+			left: -326px;
+			right: auto;
+		}
+	}
+}*/

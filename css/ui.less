@@ -1,0 +1,487 @@
+.btn {
+	display: inline-block;
+	box-sizing: border-box;
+	height: @input-size;
+	padding: 4px 9px;
+
+	box-shadow: 0 1px 2px @card-shadow;
+	border-radius: 3px;
+	border: solid 1px @medium-gray;
+	background: linear-gradient( 
+		to bottom,
+		@white 0%, 
+		@lighter-gray 100%
+	);
+	vertical-align: baseline;
+
+	font-family: 'Open Sans', sans-serif;
+	font-size: 9.5pt;
+	font-weight: 800;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: -1px;
+	line-height: 20px;
+	user-select: none;
+	cursor: pointer;
+
+	&.btn-primary {
+		border-color: @dark-accent;
+		background: linear-gradient( 
+			to bottom,
+			lighten(@accent,5%) 0%, 
+			darken(@accent,5%) 100%
+		);
+		color: @white;
+		text-shadow: 0 1px 0 @dark-accent;
+	}
+
+	&.btn-icon {
+		width: 28px;
+		padding: 0 !important;
+
+		box-shadow: none;
+		border: none;
+		background: transparent;
+		line-height: 28px;
+
+		i {
+			width: 28px;
+			font-size: 28px;
+			line-height: 28px;
+			text-align: center;
+			vertical-align: top;
+		}
+	}
+
+	&.btn-small {
+		padding: 4px 6px;
+		height: @input-size-small;
+
+		border-radius: 2px;
+		font-family: 'Tahoma', sans-serif;
+		font-size: 7.5pt;
+		letter-spacing: 0;
+		line-height: 12px;
+
+		&.btn-icon {
+			width: 14px;
+
+			i {
+				width: 14px;
+				height: 14px;
+				font-size: 14px;
+				line-height: 14px;
+				vertical-align: baseline;
+			}
+		}
+	}
+
+	&.btn-large {
+		padding: 5px 15px;
+		height: @input-size-large;
+
+		border-radius: 4px;
+		font-size: 14pt;
+		font-family: sans-serif;
+		line-height: 31px;
+
+		&.btn-icon {
+			width: 42px;
+
+			i {
+				width: 42px;
+				height: 42px;
+				font-size: 42px;
+				line-height: 30px;
+			}
+		}
+	}
+
+	&.btn-disabled {
+		background: @lighter-gray;
+		border-color: @light-gray;
+		box-shadow: none;
+
+		text-shadow: none;
+		color: @medium-gray;
+		cursor: default;
+	}
+}
+
+input {
+	&[type=text], &[type=password] {
+		box-sizing: border-box;
+		height: @input-size;
+		padding: 4px 11px;
+
+		background: @lighter-gray;
+		box-shadow: 0 0 1px 1px darken(@lighter-gray, 10%) inset;
+		border: none;
+		border-radius: 100px;
+		outline: none;
+		line-height: 22px;
+
+		&:focus {
+			box-shadow: 0 0 0 1px @accent inset;
+		}
+
+		&.input-small {
+			width: 110px;
+			height: @input-size-small;
+			padding: 2px 7px;
+
+			font-size: 8pt;
+			line-height: 22px;
+		}
+
+		&.input-large {
+			height: @input-size-large;
+			padding: 0 13px;
+
+			box-shadow: 0 0 1px 2px darken(@lighter-gray, 10%) inset;
+			font-size: 15pt;
+			line-height: 42px;
+
+			&:focus {
+				box-shadow: 0 0 0 2px @accent inset;
+			}
+		}
+	}
+
+	&[type=checkbox] {
+		display: none;
+
+		&+var {
+			position: relative;
+			display: inline-block;
+			width: 32px;
+			height: 14px !important;
+			margin: 4px 0;
+			overflow: hidden;
+
+			cursor: pointer;
+			border-radius: 100px;
+			background: @lighter-gray;
+			line-height: 0 !important;
+
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0; left: -32px;
+				width: 32px*2px;
+				height: 14px;
+
+				border-radius: 100px;
+				box-shadow: 0 0 1px 1px rgba(0,0,0,0.15) inset;
+				background: linear-gradient( 
+					to right,
+					lighten(@accent,10%) 0%, 
+					lighten(@accent,10%) 50%, 
+					transparent 50%, 
+					transparent 100%
+				);
+			}
+
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0; left: 0;
+				width: 14px;
+				height: 14px;
+
+				box-shadow: 0 0 1px 1px darken(@darker-gray, 10%) inset;
+				border-radius: 100px;
+				background: @darker-gray;
+				background: linear-gradient( 
+					to bottom,
+					lighten(@darker-gray,5%) 0%, 
+					darken(@darker-gray,5%) 100%
+				);
+			}
+		}
+
+		&:checked {
+			&+var {
+				&:before {
+					left: 0;
+				}
+				&:after {
+					left: auto; right: 0;
+				}
+			}
+		}
+	}
+
+	&[type=radio] {
+		display: none;
+
+		&+var {
+			position: relative;
+			display: inline-block;
+			width: 14px;
+			height: 14px !important;
+			margin: 4px 0;
+			overflow: hidden;
+
+			cursor: pointer;
+			box-shadow: 0 0 1px 1px darken(@lighter-gray, 17%) inset;
+			border-radius: 100px;
+			background: @lighter-gray;
+			line-height: 0 !important;
+
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 4px; left: 4px;
+				width: 6px;
+				height: 6px;
+
+				transform: scale(0,0);
+
+				opacity: 0;
+				border-radius: 6px;
+				background: @white;
+				box-shadow: 0 0 3px 1px @dark-accent;
+			}
+		}
+
+		&:checked {
+			&+var {
+				box-shadow: 0 0 1px 1px @dark-accent inset;
+				background: lighten(@accent,10%);
+
+				&:after {
+					transform: scale(1,1);
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+
+.input-checkbox, .input-radio {
+	height: 18px;
+}
+
+.input-dropdown {
+	position: relative;
+	display: inline-block;
+	box-sizing: border-box;
+	height: @input-size;
+	width: 170px;
+
+	box-shadow: 0 0 1px 1px darken(@lighter-gray, 10%) inset;
+	background: @lighter-gray;
+	border-radius: 3px;
+	vertical-align: top;
+
+	font-size: 10pt;
+	user-select: none;
+	cursor: pointer;
+
+	.input-dropdown-list {
+		display: block;
+		position: absolute;
+		top: 0; right: @input-size; bottom: 0; left: 0;
+		height: @input-size;
+		padding: 0 8px;
+		overflow: hidden;
+
+		line-height: @input-size;
+
+		li {
+			display: block;
+			height: @input-size;
+			line-height: @input-size;
+			text-align: left;
+		}
+	}
+
+	.input-dropdown-btn {
+		display: block;
+		position: absolute;
+		top: 6px; bottom: 6px; right: 0;
+		width: @input-size;
+
+		border-left: solid 1px @light-gray;
+		text-align: center;
+
+		i {
+			margin-right: 3px;
+		}
+	}
+
+	&:hover {
+		box-shadow: 0 0 0 1px @medium-gray inset,
+					0 1px 2px @card-shadow;
+		background: linear-gradient( 
+			to bottom,
+			@white 0%, 
+			@lighter-gray 100%
+		);
+
+		.input-dropdown-btn {
+			border-left: solid 1px @medium-gray;
+		}
+	}
+
+	&:active {
+
+	}
+
+	&.input-small {
+		width: 110px;
+		height: @input-size-small;
+		font-size: 8pt;
+
+		.input-dropdown-list {
+			right: @input-size-small;
+			height: @input-size-small;
+			padding: 0 6px;
+			line-height: @input-size-small;
+
+			li {
+				height: @input-size-small;
+				line-height: @input-size-small;
+			}
+		}
+
+		.input-dropdown-btn {
+			top: 4px; bottom: 4px;
+			width: @input-size-small;
+
+			i {
+				margin-right: 2px;
+			}
+		}
+	}
+}
+
+.input-range {
+	position: relative;
+	display: inline-block;
+	width: 110px;
+	height: 14px !important;
+	margin: 4px 0;
+	overflow: hidden;
+
+	cursor: pointer;
+	border-radius: 100px;
+	background: @lighter-gray;
+	line-height: 0 !important;
+
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0; left: 0;
+		width: 50%;
+		height: 14px;
+
+		background: lighten(@accent,10%);
+	}
+
+	&:after {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0; left: 0;
+		width: 110px;
+		height: 14px;
+
+		border-radius: 100px;
+		box-shadow: 0 0 1px 1px rgba(0,0,0,0.15) inset;
+	}
+
+	em {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0; left: 50%;
+		margin-left: -7px;
+		width: 14px;
+		height: 14px;
+
+		box-shadow: 0 0 1px 1px darken(@darker-gray, 10%) inset;
+		border-radius: 100px;
+		background: @darker-gray;
+		background: linear-gradient( 
+			to bottom,
+			lighten(@darker-gray,5%) 0%, 
+			darken(@darker-gray,5%) 100%
+		);
+
+		&:nth-child(2) {
+			left: 7px;
+		}
+	}
+}
+
+label {
+	display: inline-block;
+	margin-bottom: 5px;
+
+	font-weight: bold;
+}
+
+.form-controls {
+	margin-bottom: 5px;
+	font-size: 9pt;
+	padding-bottom: 5px;
+	
+	border-bottom: solid 1px @light-gray;
+
+	label {
+		height: 32px;
+		margin-bottom: 0;
+
+		line-height: 32px;
+		float: none;
+	}
+
+	.text-label, input, .btn, .input {
+		float: right;
+	}
+
+	.text-label {
+		height: 32px;
+
+		font-size: 9pt;
+		line-height: 32px;
+	}
+
+	input {
+		margin-top: (32px - 22px) / 2px;
+	}
+
+	.btn {
+		margin-top: (32px - 22px) / 2px;
+	}
+
+	.btn-icon {
+		margin-top: 9px;
+		margin-left: 5px;
+	}
+
+	.input {
+		margin-top: 5px;
+		margin-left: 5px;
+	}
+
+	.input-range {
+		margin-top: 9px;
+	}
+
+	&:last-child {
+		border-bottom: none;
+		padding-bottom: 0;
+	}
+}
+
+div.form-controls {
+	position: relative;
+	height: 32px;
+}
