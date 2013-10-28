@@ -317,7 +317,7 @@ input {
 	&[type=checkbox] {
 		display: none;
 
-		&+label {
+		&+var {
 			position: relative;
 			display: inline-block;
 			width: 32px;
@@ -366,8 +366,10 @@ input {
 					darken(@darker-gray,5%) 100%
 				);
 			}
+		}
 
-			&:checked {
+		&:checked {
+			&+var {
 				&:before {
 					left: 0;
 				}
@@ -381,7 +383,7 @@ input {
 	&[type=radio] {
 		display: none;
 
-		&+label {
+		&+var {
 			position: relative;
 			display: inline-block;
 			width: 14px;
@@ -395,27 +397,31 @@ input {
 			background: @lighter-gray;
 			line-height: 0 !important;
 
-			/*&:after {
+			&:after {
 				content: '';
 				display: block;
 				position: absolute;
-				top: 2px; left: 2px;
-				width: 10px;
-				height: 10px;
+				top: 4px; left: 4px;
+				width: 6px;
+				height: 6px;
 
-				box-shadow: 0 0 1px 1px darken(@darker-gray, 10%) inset;
-				border-radius: 100px;
-				background: @darker-gray;
-				background: linear-gradient( 
-					to bottom,
-					lighten(@darker-gray,5%) 0%, 
-					darken(@darker-gray,5%) 100%
-				);
-			}*/
+				transform: scale(0,0);
 
-			&:checked {
+				opacity: 0;
+				border-radius: 6px;
+				background: @white;
+				box-shadow: 0 0 3px 1px @dark-accent;
+			}
+		}
+
+		&:checked {
+			&+var {
+				box-shadow: 0 0 1px 1px @dark-accent inset;
+				background: lighten(@accent,10%);
+
 				&:after {
-					
+					transform: scale(1,1);
+					opacity: 1;
 				}
 			}
 		}
@@ -442,7 +448,7 @@ label {
 		float: none;
 	}
 
-	.text-label, input, .btn, input+label {
+	.text-label, input, .btn, .input-radio, .input-checkbox {
 		float: right;
 	}
 
@@ -466,8 +472,8 @@ label {
 		margin-left: 5px;
 	}
 
-	input+label {
-		margin-top: 9px;
+	.input-radio, .input-checkbox {
+		margin-top: 5px;
 		margin-left: 5px;
 	}
 }
