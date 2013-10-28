@@ -47,7 +47,6 @@ table {
 	border-spacing: 0;
 }
 
-
 /*  
    Variables 
 */
@@ -80,6 +79,10 @@ table {
    General styles 
 */
 
+body, html {
+	overflow: hidden;
+}
+
 body {
 	font: 400 13pt/1.17 sans-serif;
 	background: @body-color;
@@ -101,6 +104,17 @@ a:visited {
 
 a:hover {
 	color: @accent;
+}
+
+.ps-container {
+	.ps-scrollbar-y-rail {
+		width: 6px;
+		padding: 5px 0;
+	}
+
+	.pos-scrollbar-y {
+		width: 6px;
+	}
 }
 
 
@@ -170,8 +184,8 @@ a:hover {
 
 // Styles
 
+@card-header-height: 40px;
 .card { 
-	@card-header-height: 40px;
 
 	position: absolute;
 	display: block;
@@ -206,6 +220,14 @@ a:hover {
 				font-size: 30px;
 			}
 		}
+	}
+
+	.content-container {
+		position: absolute;
+		top: @card-header-height;
+		left: 0; right: 0; bottom: 0;
+		overflow: hidden;
+		overflow-y: auto;
 	}
 
 	&.card-collapsable {
@@ -253,6 +275,24 @@ a:hover {
 }
 
 section.card {
+	header {
+		&:after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: @card-header-height; left: 0;
+			width: 100%;
+			height: 0px;
+
+			opacity: 0;
+			background: linear-gradient( 
+				to top,
+				rgba(0,0,0,0) 0%, 
+				@card-shadow 100%
+			);
+		}
+	}
+
 	.card-container {
 		left: 1px;
 		background: @white;
@@ -270,6 +310,17 @@ section.card {
 				rgba(0,0,0,0) 0%, 
 				@card-shadow 100%
 			);
+		}
+	}
+
+	&.card-scroll {
+		header {
+			border-bottom: none;
+
+			&:after {
+				height: 5px;
+				opacity: 1;
+			}
 		}
 	}
 

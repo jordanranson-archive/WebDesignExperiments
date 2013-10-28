@@ -1,0 +1,580 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"sta",
+				"statsTooltipCvs"
+			],
+			[
+				"bacc",
+				"backBufferCvs"
+			],
+			[
+				"back",
+				"backBufferCtx"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"debr",
+				"debrisCounter"
+			],
+			[
+				"get",
+				"getTargetsInRadius"
+			],
+			[
+				"Trave",
+				"TravelMethod"
+			],
+			[
+				"cal",
+				"calcTrajectory"
+			],
+			[
+				"cool",
+				"cooldownTimer"
+			],
+			[
+				"pr",
+				"projectile"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 5116,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 380.0,
+		"selected_items":
+		[
+			[
+				"package",
+				"Package Control: Install Package"
+			],
+			[
+				"package control: install package",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 160.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/Users/Jordan/Documents/GitHub/WebDesignExperiments/css/site.less",
+		"/C/Users/Jordan/Documents/GitHub/WebDesignExperiments/css/font-awesome.min.css",
+		"/C/Users/Jordan/Documents/GitHub/WebDesignExperiments/index.html",
+		"/C/Users/Jordan/Documents/GitHub/WebDesignExperiments/js/site.js",
+		"/C/Users/Jordan/Documents/GitHub/WebDesignExperiments/css/site.css",
+		"/C/Users/Jordan/Documents/GitHub/RoguelikePlatformer/lib/game/levels/side-scrolling.js",
+		"/C/Users/Jordan/Documents/GitHub/RoguelikePlatformer/lib/plusplus/config-user.js",
+		"/C/Users/Jordan/Documents/GitHub/RoguelikePlatformer/lib/game/main.js",
+		"/C/Users/Jordan/Documents/GitHub/RoguelikePlatformer/lib/plusplus/core/game.js",
+		"/C/Users/Jordan/Documents/GitHub/RoguelikePlatformer/index.html",
+		"/C/Users/Jordan/Documents/GitHub/WizBiz/js/app.js",
+		"/C/Users/Jordan/Documents/GitHub/WizBiz/css/app.css",
+		"/C/Users/Jordan/Documents/GitHub/WizBiz/js/models/plant.js",
+		"/C/Users/Jordan/Documents/GitHub/WizBiz/js/views/garden.js",
+		"/C/Users/Jordan/Documents/GitHub/WizBiz/js/data/plants.js",
+		"/C/Users/Jordan/Documents/GitHub/WizBiz/js/views/plant.js",
+		"/C/Users/Jordan/Documents/GitHub/WizBiz/js/views/modal.js",
+		"/C/Users/Jordan/Documents/GitHub/WizBiz/js/views/seed-shop.js",
+		"/C/Users/Jordan/Documents/GitHub/WizBiz/js/views/ui.js",
+		"/C/Users/Jordan/Documents/GitHub/WizBiz/js/models/seed.js",
+		"/C/Users/Jordan/Documents/GitHub/WizBiz/js/data/seeds.js",
+		"/C/Users/Jordan/Documents/GitHub/WizBiz/js/views/main-menu.js",
+		"/C/Users/Jordan/Documents/GitHub/WizBiz/js/views/shack.js",
+		"/C/Users/Jordan/Documents/GitHub/WizBiz/js/views/cart.js",
+		"/C/Users/Jordan/Documents/GitHub/WizBiz/js/app/seed-shop.js",
+		"/C/Users/Jordan/Documents/GitHub/WizBiz/js/app/main-menu.js",
+		"/C/Users/Jordan/Documents/GitHub/WizBiz/js/app/seeds.js",
+		"/C/Users/Jordan/Documents/GitHub/WizBiz/js/app/cart.js",
+		"/C/Users/Jordan/Documents/GitHub/WizBiz/css/reset.css",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/block/BlockCrops.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/magicmod/MagicMod.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/magicmod/BlockLichen.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/block/material/Material.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/block/Block.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/block/BlockVine.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/block/BlockFlower.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/block/BlockMushroom.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/block/BlockFlowing.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraftforge/common/IShearable.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/block/BlockClay.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/block/BlockLeaves.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/block/BlockCocoa.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/block/BlockCactus.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/block/BlockLog.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/block/BlockDirectional.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/magicmod/GenericBlock.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/item/ItemDye.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/creativetab/CreativeTabs.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/magicmod/GenericItem.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/block/BlockGlass.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/magicmod/ClientProxy.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/com.jordanranson.magicmod/CommonProxy.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/com.jordanranson.magicmod/ClientProxy.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/com.jordanranson.magicmod/GenericBlock.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/com.jordanranson.magicmod/GenericItem.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/com.jordanranson.magicmod/MagicMod.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/item/Item.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/cpw/mods/fml/client/CustomModLoadingErrorDisplayException.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/cpw/mods/fml/common/SidedProxy.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/tileentity/TileEntityBeacon.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/potion/Potion.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/item/ItemPotion.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/potion/PotionEffect.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/entity/monster/EntityGolem.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/entity/passive/EntityWolf.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/entity/monster/EntityIronGolem.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/block/BlockEnchantmentTable.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/net/minecraft/block/BlockCauldron.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/Start.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/GenericItem.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/GenericBlock.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/MagicMod.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/cpw/mods/fml/client/FMLClientHandler.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/CommonProxy.java",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/ClientProxy.java",
+		"/C/Users/Jordan/Documents/GitHub/NodeController/lib/game/entities/node.js",
+		"/C/Users/Jordan/Documents/GitHub/MinecraftMagicMod/forge/mcp/src/minecraft/Magicmod.java",
+		"/C/Users/Jordan/Documents/GitHub/NodeController/lib/game/main.js",
+		"/C/Users/Jordan/Documents/GitHub/NodeController/index.html",
+		"/C/Users/Jordan/Documents/GitHub/NodeController/lib/impact/input.js",
+		"/C/Users/Jordan/AppData/Local/Temp/fz3temp-1/header.php",
+		"/C/Users/Jordan/AppData/Local/Temp/fz3temp-1/index.php",
+		"/C/Users/Jordan/Documents/GitHub/NodeController/lib/impact/system.js",
+		"/C/Users/Jordan/Documents/GitHub/NodeController/lib/fss/fss.js",
+		"/C/Users/Jordan/Documents/GitHub/NodeController/lib/game/enums.js",
+		"/C/Users/Jordan/AppData/Local/Temp/7zO46E4.tmp/main.js",
+		"/C/Users/Jordan/Documents/GitHub/WebDesignExperiments/js/fss.min.js",
+		"/C/Users/Jordan/AppData/Local/Temp/7zODEC0.tmp/main.js",
+		"/C/Users/Jordan/Documents/GitHub/NodeController/lib/impact/game.js",
+		"/C/Users/Jordan/Documents/GitHub/WebDesignExperiments/js/fastblur.js",
+		"/C/Users/Jordan/Documents/GitHub/NodeController/lib/levelgen/levelgen.js",
+		"/C/Users/Jordan/Documents/GitHub/NodeController/lib/game/player.js",
+		"/C/Users/Jordan/Documents/GitHub/NodeController/lib/pathfinding/pathfinding.js",
+		"/C/Users/Jordan/Documents/GitHub/NodeController/lib/game/entities/3d.js",
+		"/C/Users/Jordan/Documents/GitHub/Personal-Site-2/index.html",
+		"/C/Users/Jordan/Documents/GitHub/NodeController/lib/three/three.js",
+		"/C/Users/Jordan/Documents/GitHub/NodeController/lib/three/deferred-renderer.js",
+		"/C/Users/Jordan/Documents/GitHub/GameDevExperiments/lib/game/main.js",
+		"/C/Users/Jordan/Documents/GitHub/cookingwithjessie.com/index.html",
+		"/C/Users/Jordan/Documents/GitHub/GameDevExperiments/lib/game/entities/camera.js",
+		"/C/Users/Jordan/Documents/GitHub/GameDevExperiments/lib/game/entities/ui.js",
+		"/C/Users/Jordan/Documents/GitHub/GameDevExperiments/lib/game/entities/node.js",
+		"/C/Users/Jordan/Documents/GitHub/GameDevExperiments/lib/game/enums.js",
+		"/C/Users/Jordan/Documents/GitHub/GameDevExperiments/shadertest.html",
+		"/C/Users/Jordan/Documents/GitHub/GameDevExperiments/index.html",
+		"/C/Users/Jordan/Documents/GitHub/GameDevExperiments/lib/game/entities/tooltip.js",
+		"/C/Users/Jordan/Documents/GitHub/GameDevExperiments/package.html",
+		"/C/Users/Jordan/Documents/GitHub/GameDevExperiments/package.json",
+		"/C/Users/Jordan/Documents/GitHub/GameDevExperiments/lib/three/three.js",
+		"/C/Users/Jordan/Documents/GitHub/GameDevExperiments/lib/impact/input.js",
+		"/C/Users/Jordan/Documents/GitHub/GameDevExperiments/lib/levelgen/levelgen.js",
+		"/C/Users/Jordan/Documents/GitHub/GameDevExperiments/lib/impact/image.js",
+		"/C/Users/Jordan/Documents/GitHub/GameDevExperiments/lib/impact/game.js",
+		"/C/Users/Jordan/Documents/GitHub/GameDevExperiments/lib/game/entities/delay.js",
+		"/C/Users/Jordan/Documents/GitHub/GameDevExperiments/lib/game/entities/3d.js",
+		"/C/Users/Jordan/Documents/GitHub/Impact3D/lib/game/entities/player.js",
+		"/C/Users/Jordan/Documents/GitHub/Impact3D/lib/game/scene-manager.js",
+		"/C/Users/Jordan/Documents/GitHub/Impact3D/index.html",
+		"/C/Users/Jordan/Documents/GitHub/Impact3D/lib/game/entities/panel.js",
+		"/C/Users/Jordan/Documents/GitHub/Impact3D/lib/game/entities/camera.js",
+		"/C/Users/Jordan/Documents/GitHub/PlatformerTD/2.0/lib/game/behavior.js",
+		"/C/Users/Jordan/Documents/GitHub/Impact3D/lib/impact/game.js",
+		"/C/Users/Jordan/Documents/GitHub/Impact3D/lib/game/entities/building.js",
+		"/C/Users/Jordan/Documents/GitHub/Impact3D/lib/impact/entity.js",
+		"/C/Users/Jordan/Documents/GitHub/Impact3D/lib/game/entities/fence.js",
+		"/C/Users/Jordan/Documents/GitHub/Impact3D/lib/game/entities/3d.js",
+		"/C/Users/Jordan/Documents/GitHub/Impact3D/lib/game/main.js",
+		"/C/Users/Jordan/Documents/GitHub/PlatformerTD/2.0/lib/game/main.js"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"width: 0",
+			"collapsed",
+			"aside",
+			".card {",
+			"border-bottom:",
+			"h1 {",
+			"&:after ",
+			"background:",
+			"card-shadow",
+			"0.1",
+			"background: #fff",
+			".wrapper-content",
+			"h1 ",
+			"h1",
+			"header",
+			"header ",
+			"ccc",
+			"440",
+			"440px",
+			"slide-out",
+			"card-main-content",
+			"446",
+			"160",
+			"collapsed-header",
+			"@collapsed-header-width",
+			"collapsed",
+			"160px",
+			"@collapsed-header-width",
+			"transition",
+			"loadlevel",
+			"hide-meta",
+			".hide-meta",
+			"scale",
+			"meta-card-shrink",
+			"slide-out",
+			"transform",
+			"display: none",
+			"transition-pro",
+			"hide-meta",
+			"card {",
+			"\"",
+			":active",
+			"600ms",
+			"ease-in-out",
+			"h1 ",
+			"span {",
+			"header",
+			"opacity",
+			"card-nav",
+			"background:",
+			"#8cc152",
+			"h1",
+			"8cc152",
+			"-nav",
+			"span",
+			"card-nav",
+			"slide-out",
+			".slide-out",
+			"slide-out",
+			"body:active, ",
+			"body:active",
+			"btn-item",
+			"letter-spacing",
+			"\nletter-spacing: 1.5rem;",
+			"\n		letter-spacing: 1.5rem;",
+			"alert",
+			"show",
+			"canbeplaced",
+			"i1",
+			"l",
+			"canvinestay",
+			"meta",
+			"isblockreplac",
+			"canblock",
+			"material",
+			"stone",
+			"id",
+			"side",
+			"canplace",
+			"cocoa",
+			"setBlockBoundsForItemRender",
+			"getCocoaIcon",
+			"getIconString",
+			"icon",
+			"texture",
+			"setTextureName",
+			"iconString",
+			"icon",
+			"func_",
+			"acrobatics",
+			"potion",
+			"jump",
+			"potion",
+			"tutorial.generic",
+			"arc",
+			"dist",
+			"ig.game.mouse",
+			"distanceToPoint",
+			"this.data",
+			"dragPos",
+			"this.team",
+			"ig.system.context",
+			"drawUI",
+			"drawDragUi",
+			"hover",
+			"alpha",
+			"lineWid",
+			"this.radius",
+			"threadAlpha",
+			"glowAlpha",
+			"threadAlpha",
+			"threadCurAlpha",
+			"drawCoreDragUi",
+			"threadCanOpen",
+			"threadMenu",
+			"ig.show",
+			"con",
+			"ig.show",
+			"h3",
+			".left, ",
+			"before",
+			"* {",
+			".cloned",
+			"* ",
+			"removeClass( 'full",
+			"article",
+			"opacity: 0",
+			"var"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"'",
+			"@duration-medium",
+			"@ease-in-out",
+			"@accent",
+			"967adc",
+			"",
+			"body:active, body.hide-meta",
+			"",
+			"meta2",
+			"meta",
+			"com.jordanranson.magicmod",
+			"ctx",
+			"glowAlpha",
+			"drawDragUi",
+			"longpressCanOpen",
+			"longpressMenu",
+			"@fast",
+			"@slow",
+			"@speed1",
+			"",
+			"ig.game.mouse",
+			"pos",
+			"0",
+			"",
+			"ig.system.context.",
+			"ig.system.context",
+			"ig.system.context.",
+			"ig.game.mouse",
+			"mouse.x",
+			"mouse.y",
+			"ig.game.mousex",
+			"ig.game.mousey",
+			"posy",
+			"posx",
+			"distCenter",
+			"threadCurAlpha",
+			"ts-6",
+			"ts+6",
+			"8",
+			"ts",
+			"	",
+			"0.3",
+			"1",
+			"document",
+			" 25",
+			" 30",
+			"+21",
+			"48",
+			"+22",
+			"48",
+			"",
+			"50 );",
+			" 80 )",
+			"80,",
+			" 25 )",
+			"25 )",
+			" 25,",
+			"25,",
+			"50,",
+			"80+25",
+			"80",
+			"__",
+			"this.three.",
+			"this.canMove()",
+			"ig.game._rscreen",
+			"focusPos",
+			"'rgba(0,0,0,0.7)'",
+			"'rgba(0,238,34,0.7)'",
+			".canAttack( this.owner )",
+			"creeps",
+			"COSTS {%} COINS",
+			"this.modifier = new",
+			"owner",
+			"'",
+			"followEntity",
+			"timer",
+			"this.score",
+			"this.defn",
+			"defn: ProjectileDefault",
+			"0",
+			"// url",
+			"selectedSkillIndex",
+			"selectedGroupIndex",
+			"[ 0 ], // sequence",
+			" x: -165",
+			" x: -168",
+			" x: -158",
+			"[ 0, 1, 2, 3 ], // sequence",
+			"1 // speed",
+			"[ 0 ], // sequence",
+			"0 // speed",
+			"top",
+			"ig.$new('canvas')",
+			"'",
+			"this.slices",
+			"'",
+			"basicAttack",
+			"execute(",
+			"condition",
+			"skills",
+			"data",
+			"this.execute",
+			"executing",
+			"execute: function"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 5116,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2448,
+								2448
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 660.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 35.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 163.0,
+	"status_bar_visible": true
+}
