@@ -315,11 +315,110 @@ input {
 	}
 
 	&[type=checkbox] {
+		display: none;
 
+		&+label {
+			position: relative;
+			display: inline-block;
+			width: 32px;
+			height: 14px !important;
+			margin: 4px 0;
+			overflow: hidden;
+
+			cursor: pointer;
+			border-radius: 100px;
+			background: @lighter-gray;
+			line-height: 0 !important;
+
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0; left: -32px;
+				width: 32px*2px;
+				height: 14px;
+
+				border-radius: 100px;
+				box-shadow: 0 0 1px 1px rgba(0,0,0,0.15) inset;
+				background: linear-gradient( 
+					to right,
+					lighten(@accent,10%) 0%, 
+					lighten(@accent,10%) 50%, 
+					transparent 50%, 
+					transparent 100%
+				);
+			}
+
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0; left: 0;
+				width: 14px;
+				height: 14px;
+
+				box-shadow: 0 0 1px 1px darken(@darker-gray, 10%) inset;
+				border-radius: 100px;
+				background: @darker-gray;
+				background: linear-gradient( 
+					to bottom,
+					lighten(@darker-gray,5%) 0%, 
+					darken(@darker-gray,5%) 100%
+				);
+			}
+
+			&:checked {
+				&:before {
+					left: 0;
+				}
+				&:after {
+					left: auto; right: 0;
+				}
+			}
+		}
 	}
 
 	&[type=radio] {
-		
+		display: none;
+
+		&+label {
+			position: relative;
+			display: inline-block;
+			width: 14px;
+			height: 14px !important;
+			margin: 4px 0;
+			overflow: hidden;
+
+			cursor: pointer;
+			box-shadow: 0 0 1px 1px darken(@lighter-gray, 17%) inset;
+			border-radius: 100px;
+			background: @lighter-gray;
+			line-height: 0 !important;
+
+			/*&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 2px; left: 2px;
+				width: 10px;
+				height: 10px;
+
+				box-shadow: 0 0 1px 1px darken(@darker-gray, 10%) inset;
+				border-radius: 100px;
+				background: @darker-gray;
+				background: linear-gradient( 
+					to bottom,
+					lighten(@darker-gray,5%) 0%, 
+					darken(@darker-gray,5%) 100%
+				);
+			}*/
+
+			&:checked {
+				&:after {
+					
+				}
+			}
+		}
 	}
 }
 
@@ -343,7 +442,7 @@ label {
 		float: none;
 	}
 
-	.text-label, input, .btn {
+	.text-label, input, .btn, input+label {
 		float: right;
 	}
 
@@ -363,6 +462,11 @@ label {
 	}
 
 	.btn-icon {
+		margin-top: 9px;
+		margin-left: 5px;
+	}
+
+	input+label {
 		margin-top: 9px;
 		margin-left: 5px;
 	}
