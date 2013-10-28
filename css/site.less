@@ -85,6 +85,35 @@ table {
    General styles 
 */
 
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0;
+}
+ 
+.clearfix {
+	display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+	display: block;
+}
+ 
+* html .clearfix {
+	height: 1%;
+}
+
+.pull-left {
+	float: left !important;
+}
+
+.pull-right {
+	float: right !important;
+}
+
 body, html {
 	overflow: hidden;
 }
@@ -125,6 +154,11 @@ a:hover {
 
 .form-controls {
 	border-bottom: solid 1px @light-gray;
+}
+
+div.form-controls {
+	position: relative;
+	height: 32px;
 }
 
 
@@ -428,6 +462,104 @@ input {
 	}
 }
 
+.input-checkbox, .input-radio {
+	height: 18px;
+}
+
+.input-dropdown {
+	position: relative;
+	display: block;
+	box-sizing: border-box;
+	height: @input-size;
+	width: 170px;
+
+	box-shadow: 0 0 1px 1px darken(@lighter-gray, 10%) inset;
+	background: @lighter-gray;
+	border-radius: 3px;
+	vertical-align: baseline;
+
+	font-size: 10pt;
+	user-select: none;
+	cursor: pointer;
+
+	.input-dropdown-list {
+		display: block;
+		position: absolute;
+		top: 0; right: @input-size; bottom: 0; left: 0;
+		height: @input-size;
+		padding: 0 8px;
+		overflow: hidden;
+
+		line-height: @input-size;
+
+		li {
+			display: block;
+			height: @input-size;
+			line-height: @input-size;
+			text-align: left;
+		}
+	}
+
+	.input-dropdown-btn {
+		display: block;
+		position: absolute;
+		top: 6px; bottom: 6px; right: 0;
+		width: @input-size;
+
+		border-left: solid 1px @light-gray;
+		text-align: center;
+
+		i {
+			margin-right: 3px;
+		}
+	}
+
+	&:hover {
+		box-shadow: 0 0 0 1px @medium-gray inset,
+					0 1px 2px @card-shadow;
+		background: linear-gradient( 
+			to bottom,
+			@white 0%, 
+			@lighter-gray 100%
+		);
+
+		.input-dropdown-btn {
+			border-left: solid 1px @medium-gray;
+		}
+	}
+
+	&:active {
+
+	}
+
+	&.input-small {
+		width: 110px;
+		height: @input-size-small;
+		font-size: 8pt;
+
+		.input-dropdown-list {
+			right: @input-size-small;
+			height: @input-size-small;
+			padding: 0 6px;
+			line-height: @input-size-small;
+
+			li {
+				height: @input-size-small;
+				line-height: @input-size-small;
+			}
+		}
+
+		.input-dropdown-btn {
+			top: 4px; bottom: 4px;
+			width: @input-size-small;
+
+			i {
+				margin-right: 2px;
+			}
+		}
+	}
+}
+
 label {
 	display: inline-block;
 	margin-bottom: 5px;
@@ -435,7 +567,7 @@ label {
 	font-weight: bold;
 }
 
-.card p.form-controls {
+.card .form-controls {
 	margin-bottom: 5px;
 	font-size: 9pt;
 	padding-bottom: 5px;
@@ -448,7 +580,8 @@ label {
 		float: none;
 	}
 
-	.text-label, input, .btn, .input-radio, .input-checkbox {
+	.text-label, input, .btn, 
+	.input-radio, .input-checkbox, .input-dropdown {
 		float: right;
 	}
 
@@ -472,7 +605,7 @@ label {
 		margin-left: 5px;
 	}
 
-	.input-radio, .input-checkbox {
+	.input-radio, .input-checkbox, .input-dropdown {
 		margin-top: 5px;
 		margin-left: 5px;
 	}

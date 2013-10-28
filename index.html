@@ -97,9 +97,19 @@
 
 				<h2>Advanced Controls</h2>
 
-				<p class="form-controls">
-					<label>Dropdown</label>
-				</p>
+				<div class="form-controls">
+					<label class="pull-left">Dropdown</label>
+					<div class="input-dropdown input-small">
+						<ul class="input-dropdown-list">	
+							<li>List item 0</li>
+							<li>List item 1</li>
+							<li>List item 2</li>
+							<li>List item 3</li>
+							<li>List item 4</li>
+						</ul>
+						<div class="input-dropdown-btn"><i class="fa fa-caret-down"></i></div>
+					</div>
+				</div>
 				<p class="form-controls">
 					<label>Range</label>
 				</p>
@@ -142,8 +152,18 @@
 		</header>
 		<div class="content-container">
 			<div class="content">
+				<article>
+					<img src="http://www.placehold.it/48">
+					<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet.</p>
+				</article>
 
 				<article>
+
+					<img src="http://www.placehold.it/48">
+					<p>Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. </p>
+
+					<br>
+
 					<p>
 						<input class="input-small" type="text" placeholder="Lorem Ipsum">
 						<span class="btn btn-small">Small</span>
@@ -169,18 +189,28 @@
 
 					<p>
 						<label>Checkbox</label><br>
-						<input type="checkbox" id="c1"><label for="c1"></label>
+						<label class="input-checkbox" for="c1"><input type="checkbox" id="c1"><var></var></label>
 					</p>
 
 					<p>
 						<label>Radio</label><br>
-						<input type="radio" id="r2" name="radio1"><label for="r2"></label>
-						<input type="radio" id="r3" name="radio1"><label for="r3"></label>
+						<label class="input-radio" for="r2"><input type="radio" id="r2" name="radio1"><var></var></label>
+						<label class="input-radio" for="r3"><input type="radio" id="r3" name="radio1"><var></var></label>
 					</p>
 
-					<p>
+					<div class="clearfix">
 						<label>Dropdown</label><br>
-					</p>
+						<div class="input-dropdown">
+							<ul class="input-dropdown-list">	
+								<li>List item 0</li>
+								<li>List item 1</li>
+								<li>List item 2</li>
+								<li>List item 3</li>
+								<li>List item 4</li>
+							</ul>
+							<div class="input-dropdown-btn"><i class="fa fa-caret-down"></i></div>
+						</div>
+					</div>
 
 					<p>
 						<label>Range</label><br>
