@@ -1,5 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,100,300,300italic,400italic,500,500italic,700,700italic,900,900italic,100italic);
-
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -126,7 +124,6 @@ a:hover {
 }
 
 .nav-list {
-
 	li {
 		margin: 0 10px;
 		border-bottom: solid 1px @light-gray;
@@ -196,13 +193,25 @@ a:hover {
 		}
 
 		aside {
-			margin-top: (@card-header-height - 24px)/2px;
+			margin-top: 6px;
 			float: right;
+
+			a {
+				display: inline-block;
+				height: 30px;
+				color: @medium-gray;
+			}
+
+			i {
+				font-size: 30px;
+			}
 		}
 	}
 
 	&.card-collapsable {
-
+		.collapsed {
+			display: none;
+		}
 	}
 
 	&.card-nav {
@@ -596,6 +605,14 @@ body.hide-meta {
 					width: 7px;
 				}
 			}
+
+			.expanded {
+				display: none;
+			}
+
+			.collapsed {
+				display: block;
+			}
 		}
 
 		&.card-tools {
@@ -627,6 +644,14 @@ body.hide-meta {
 					opacity: 1;
 					width: 7px;
 				}
+			}
+
+			.expanded {
+				display: none;
+			}
+
+			.collapsed {
+				display: block;
 			}
 		}
 
@@ -690,10 +715,6 @@ body.hide-meta {
 				opacity: 0;
 				-webkit-transform: scale( 0, 0 );
 			}
-
-			.card-container {
-
-			}
 		}
 	}
 }
@@ -726,6 +747,14 @@ body.hide-meta {
 			&.card-main-content {
 				left: @card-sources-width+@card-tools-width;
 				width: 520px;
+			}
+
+			.expanded {
+				display: block;
+			}
+
+			.collapsed {
+				display: none;
 			}
 		}
 	}
@@ -784,6 +813,14 @@ body.hide-meta {
 					opacity: 1;
 					width: 7px;
 				}
+
+				.expanded {
+					display: none;
+				}
+
+				.collapsed {
+					display: block;
+				}
 			}
 
 			&.card-tools {
@@ -806,6 +843,14 @@ body.hide-meta {
 				.card-container:after {
 					opacity: 1;
 					width: 7px;
+				}
+
+				.expanded {
+					display: none;
+				}
+
+				.collapsed {
+					display: block;
 				}
 			}
 
