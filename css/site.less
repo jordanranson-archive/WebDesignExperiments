@@ -92,7 +92,7 @@ body, html {
 }
 
 body {
-	font: 400 13pt/1.17 sans-serif;
+	font: 400 12pt/1.17 sans-serif;
 	background: @body-color;
 	color: @text;
 }
@@ -138,10 +138,6 @@ a:hover {
 	li {
 		margin: 0 10px;
 		border-bottom: solid 1px @light-gray;
-
-		img {
-			vertical-align: middle;
-		}
 	}
 
 	&.fix-bottom {
@@ -463,6 +459,7 @@ body.hide-meta {
 			}
 
 			&.active {
+				box-shadow: 0 0 1px 1px rgba(0,0,0,0.15) inset;
 				background: darken(@body-color, 15%);
 				color: darken(@text, 20%);
 			}
@@ -513,8 +510,77 @@ body.hide-meta {
 .card-sources {
 	.content-list {
 		li {
-			height: 76px;
-			line-height: 76px;
+			box-sizing: border-box;
+			padding: 10px 0;
+			height: 68px;
+			position: relative;
+
+			h3 {
+			}
+
+			canvas {
+				background: lighten(@accent,30%);
+			}
+
+			hgroup {
+				float: left;
+				width: 65%;
+
+			}
+
+			.ticker {
+				padding: 3px;
+
+				background: @light-gray;
+				text-align: center;
+				float: right;
+
+				p {
+					margin: 0;
+					font-family: 'Open Sans', sans-serif;
+					font-size: 10pt;
+
+					strong {
+						color: @black;
+						font-weight: bold;
+					}
+				}
+			}
+
+			&.active {
+				margin: 0;
+				padding: 10px 10px 10px 10px;
+
+
+				box-shadow: 0 0 1px 1px rgba(0,0,0,0.15) inset;
+				background: lighten(@accent,10%);
+				border-bottom: none;
+				//border-left: solid 5px @accent;
+
+				color: @white;
+				text-shadow: 0 1px 0 @dark-accent;
+
+				h3 {
+					font-weight: bold;
+				}
+
+				.ticker {
+					background: @white;
+					box-shadow: 0 0 1px 1px rgba(0,0,0,0.15);
+					text-shadow: none;
+					color: @text;
+				}
+
+				&:after {
+					content: '';
+					display: block;
+					position: absolute;
+					top: -1px; left: 0; right: 0;
+					height: 0px;
+
+					border-top: solid 1px @white;
+				}
+			}
 		}
 	}
 }
