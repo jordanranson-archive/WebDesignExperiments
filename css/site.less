@@ -52,7 +52,7 @@ table {
 */
 
 @import "variables.less";
-
+@import "mixins.less";
 
 /*  
    General styles 
@@ -213,6 +213,18 @@ a:hover {
 
 	h2, p {
 		margin-bottom: 10px;
+	}
+
+	p:last-child {
+		margin-bottom: 0;
+	}
+
+	strong {
+		font-weight: bold;
+	}
+
+	em {
+		font-style: italic;
 	}
 
 	h2 {
@@ -602,16 +614,33 @@ body.hide-meta {
  */
 
 .card-main-content {
-	article {
+	.asset {
 		border-bottom: solid 1px @light-gray; 
 		box-sizing: border-box;
-		padding: 10px 0;
+		padding: 20px 0;
 		margin: 0 10px;
 		min-height: 100px;
 
 		img {
 			float: left;
 			padding: 0 7px 7px 0;
+		}
+
+		&.well {
+			min-height: 0;
+			position: relative;
+			padding: 20px 10px;
+			border-bottom: none;
+
+			&:after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: -1px; left: 0; right: 0;
+				height: 0px;
+
+				border-top: solid 1px @white;
+			}
 		}
 	}
 }
