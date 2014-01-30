@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title></title>
+<title>Jordan Ranson</title>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/less" href="css/site.css">
+<link rel="stylesheet" type="text/less" href="css/site.less">
 <script src="./js/less-1.4.1.min.js"></script>
 <script src="./js/prefixfree.min.js"></script>
 <script src="./js/jquery-1.10.2.min.js"></script>
@@ -14,14 +14,38 @@
 <canvas class="bg-cvs" id="background"></canvas>
 
 <header>
-	<h1>Ranson</h1>
+	<h1>Jordan Ranson</h1>
 	<nav>
+        <div class="social-icon twitter"></div>
+        <div class="social-icon github"></div>
+        <div class="social-icon linkedin"></div>
 		<input type="text" value="search">
-		<div class="top-btn"><em>&times;</em><span> Close</span></div>
+		<div class="top-btn">
+            <em>&times;</em>
+            <span> Close</span>
+        </div>
 	</nav>
 </header>
 
-<div class="wrapper">
+<nav class="nav nav-top">
+    <div class="nav-left out">
+        <a href="#"><em></em> Social Feed</a>
+    </div>
+    <div class="nav-right">
+        <a href="#">Projects <em></em></a>
+    </div>
+</nav>
+
+<nav class="nav nav-bottom out">
+    <div class="nav-left out">
+        <a href="#"><em></em> Social Feed</a>
+    </div>
+    <div class="nav-right">
+        <a href="#">Projects <em></em></a>
+    </div>
+</nav>
+
+<div class="wrapper stream">
 <div class="content">
 
 	<h2>October <span>2013</span></h2>
@@ -70,54 +94,39 @@
 		<div class="media"></div>
 		<var class="stamped">07</var>
 	</section>
-
-	<h2>September <span>2013</span></h2>
-
-	<section class="article">
-		<div class="media"><div class="container"></div></div>
-		<article>
-			<h3>This is the title of the article</h3>
-			<p>Phasellus ligula sem, laoreet luctus luctus sed, pharetra in mi. Aenean accumsan gravida convallis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
-			<footer>
-				<a href="">Download</a>
-				<var>12</var>
-			</footer>
-		</article>
-	</section>
-
-	<hr>
-
-	<section class="tweet">
-		<article>
-			<h3><a href="">@jordanranson</a></h3>
-			<p>Phasellus ligula sem, laoreet luctus luctus sed, pharetra in mi. Aenean accumsan gravida convallis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
-			<footer>
-				<a href="">Permalink</a>
-				<var>09</var>
-			</footer>
-		</article>
-	</section>
-
-	<hr>
-
-	<section class="media">
-		<div class="media"><var class="stamped">03</var></div>
-	</section>
-
-	<hr>
-
-	<section class="gallery">
-		<div class="media"></div>
-		<div class="media"></div>
-		<div class="media"></div>
-		<div class="media"></div>
-		<div class="media"></div>
-		<div class="media"></div>
-		<div class="media"></div>
-		<div class="media"></div>
-		<var class="stamped">07</var>
-	</section>
 	
+</div>
+</div>
+
+<div class="wrapper projects out">
+<div class="content">
+
+    <h2>Projects</h2>
+
+    <section class="article spinner">
+        <div class="media left spinner"></div>
+        <article class="right spinner">
+            <h3>SAM</h3>
+            <p>Phasellus ligula sem, laoreet luctus luctus sed, pharetra in mi. Aenean accumsan gravida convallis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+            <footer>
+                <a href="http://www.samdesk.io" target="_blank">www.samdesk.io</a>
+            </footer>
+        </article>
+    </section>
+
+    <hr>
+
+    <section class="article spinner">
+        <div class="media left spinner"></div>
+        <article class="right spinner">
+            <h3>Party Play</h3>
+            <p>Phasellus ligula sem, laoreet luctus luctus sed, pharetra in mi. Aenean accumsan gravida convallis. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+            <footer>
+                <a href="http://partyplay.jordanranson.com" target="_blank">partyplay.jordanranson.com</a>
+            </footer>
+        </article>
+    </section>
+
 </div>
 </div>
 

@@ -114,14 +114,52 @@ window.onload = function() {
 		}
 	});
 
+    $('.nav-left').on('click', function(e) {
+        e.preventDefault();
+
+        $('.nav-left').addClass('out');
+        $('.nav-right').removeClass('out');
+
+        $('.stream').removeClass('out');
+        $('.projects').addClass('out');
+
+        $('body').animate({scrollTop: 0}, 'fast');
+    });
+
+    $('.nav-right').on('click', function(e) {
+        e.preventDefault();
+
+        $('.nav-right').addClass('out');
+        $('.nav-left').removeClass('out');
+
+        $('.projects').removeClass('out');
+        $('.stream').addClass('out');
+        
+        $('body').animate({scrollTop: 0}, 'fast');
+    });
+
+    window.onscroll = function(e) {
+        var $this = $(this);
+        var scrollTop = document.body.scrollTop;
+
+        if( scrollTop === 0 ) {
+            $('.nav-top').removeClass('out');
+            $('.nav-bottom').addClass('out');
+        }
+        else {
+            $('.nav-top').addClass('out');
+            $('.nav-bottom').removeClass('out');
+        }
+    }
+
 	// start animating that shit
-	now = new Date().getTime() / 30000;
+	/*now = new Date().getTime() / 30000;
 	(function animloop() {
 		requestAnimFrame( animloop );
 		render();
-	})();
+	})();*/
 
-	//render();
+	render();
 };
 
 // draw loop
